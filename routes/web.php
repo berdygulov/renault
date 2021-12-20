@@ -16,7 +16,6 @@ use App\Http\Controllers\Auth\LogoutController;
 
 use App\Http\Controllers\Backend\IndexController as BackendIndex;
 
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -27,6 +26,8 @@ use App\Http\Controllers\Backend\IndexController as BackendIndex;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+Broadcast::routes();
 
 Route::get('/', FrontendIndex::class);
 
@@ -43,8 +44,8 @@ Route::group([
 
 Route::group([
     'middleware' => 'auth',
-    'prefix' => 'backend',
-    'as' => 'backend.',
+    'prefix'     => 'backend',
+    'as'         => 'backend.',
 ], function () {
     /*
      * Backend Index Controllers
@@ -57,9 +58,9 @@ Route::group([
     /* Applications Controller */
     Route::group([
         'prefix' => 'applications',
-        'as' => 'applications.',
+        'as'     => 'applications.',
     ], function () {
-        Route::get('/', ApplicationIndex::class)->name('index');
+//        Route::get('/', ApplicationIndex::class)->name('index');
 //        Route::get('/create', ApplicationCreate::class)->name('create');
 //        Route::post('/', ApplicationStore::class)->name('store');
     });

@@ -23,6 +23,7 @@
     </div>
 </header>
 @yield('content')
+<script src="{{ asset('js/app.js') }}"></script>
 @livewireScripts
 </body>
 </html>
