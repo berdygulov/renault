@@ -8,6 +8,16 @@
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 </head>
 <body>
+<header class="text-white bg-renault-black">
+    <div class="container columns-2 px-3">
+        <a href="#" class="logo">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. In, natus?
+        </a>
+        <a href="#" class="flex justify-end">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. In, natus?
+        </a>
+    </div>
+</header>
 @yield('content')
 </body>
 </html>
