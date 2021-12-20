@@ -19,9 +19,7 @@
             </svg>
             <h2 class="ml-4 text-lg">ТОО "Урал-Кров-Авто Плюс"</h2>
         </a>
-        <a href="#" class="flex justify-end">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. In, natus?
-        </a>
+        <livewire:timer.timer/>
     </div>
 </header>
 @yield('content')
