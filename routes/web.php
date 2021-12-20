@@ -2,6 +2,12 @@
 
 use Illuminate\Support\Facades\Route;
 
+/**
+ * Frontend
+ */
+
+use App\Http\Controllers\Frontend\IndexController as FrontendIndex;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,6 +19,4 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', FrontendIndex::class);
