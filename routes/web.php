@@ -9,6 +9,12 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Frontend\IndexController as FrontendIndex;
 
 /*
+ * Backend
+*/
+
+use App\Http\Controllers\Backend\IndexController as BackendIndex;
+
+/*
 |--------------------------------------------------------------------------
 | Web Routes
 |--------------------------------------------------------------------------
@@ -20,3 +26,16 @@ use App\Http\Controllers\Frontend\IndexController as FrontendIndex;
 */
 
 Route::get('/', FrontendIndex::class);
+
+/* Backend Controller */
+Route::group([
+    'prefix' => 'backend',
+    'as' => 'backend.',
+//    'middleware' => 'auth',
+], function () {
+    /*
+     * Backend Index & Logout  Controllers
+    */
+    Route::get('/', BackendIndex::class)->name('index');
+//    Route::get('/logout', LogoutController::class)->name('logout');
+});
