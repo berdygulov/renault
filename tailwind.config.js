@@ -8,7 +8,8 @@ module.exports = {
 	content: [],
 	theme: {
 		container: {
-			center: true
+			center: true,
+			padding: '1rem'
 		},
 		extend: {
 			colors: {
