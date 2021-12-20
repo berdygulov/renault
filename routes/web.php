@@ -30,12 +30,17 @@ Route::get('/', FrontendIndex::class);
 /* Backend Controller */
 Route::group([
     'prefix' => 'backend',
-    'as' => 'backend.',
-//    'middleware' => 'auth',
+    'as'     => 'backend.',
+    //    'middleware' => 'auth',
 ], function () {
     /*
      * Backend Index & Logout  Controllers
     */
-    Route::get('/', BackendIndex::class)->name('index');
+    Route::get('/', function () {
+        return 'asdasdas';
+    })->name('index');
+    Route::get('/aaa', function () {
+        return 'aaa';
+    });
 //    Route::get('/logout', LogoutController::class)->name('logout');
 });
