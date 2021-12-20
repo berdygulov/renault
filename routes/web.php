@@ -2,17 +2,20 @@
 
 use Illuminate\Support\Facades\Route;
 
-/**
- * Frontend
- */
+/* Frontend */
 
 use App\Http\Controllers\Frontend\IndexController as FrontendIndex;
 
-/*
- * Backend
-*/
+/* Auth Controllers */
+
+use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\Auth\LogoutController;
+
+/* Backend */
 
 use App\Http\Controllers\Backend\IndexController as BackendIndex;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -27,20 +30,37 @@ use App\Http\Controllers\Backend\IndexController as BackendIndex;
 
 Route::get('/', FrontendIndex::class);
 
-/* Backend Controller */
+/* Guest Controller */
+
 Route::group([
+    'middleware' => 'guest',
+], function () {
+    Route::get('login', LoginController::class)->name('login');
+    Route::post('auth', AuthController::class)->name('auth');
+});
+
+/* Backend Controller */
+
+Route::group([
+    'middleware' => 'auth',
     'prefix' => 'backend',
-    'as'     => 'backend.',
-    //    'middleware' => 'auth',
+    'as' => 'backend.',
 ], function () {
     /*
-     * Backend Index & Logout  Controllers
+     * Backend Index Controllers
     */
-    Route::get('/', function () {
-        return 'asdasdas';
-    })->name('index');
-    Route::get('/aaa', function () {
-        return 'aaa';
+    Route::get('/', BackendIndex::class)->name('index');
+
+    /* Logout Controller */
+    Route::get('/logout', LogoutController::class)->name('logout');
+
+    /* Applications Controller */
+    Route::group([
+        'prefix' => 'applications',
+        'as' => 'applications.',
+    ], function () {
+        Route::get('/', ApplicationIndex::class)->name('index');
+//        Route::get('/create', ApplicationCreate::class)->name('create');
+//        Route::post('/', ApplicationStore::class)->name('store');
     });
-//    Route::get('/logout', LogoutController::class)->name('logout');
 });

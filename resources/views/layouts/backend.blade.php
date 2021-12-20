@@ -11,27 +11,29 @@
     <link rel="stylesheet"
           href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="{{ asset('backend/css/all.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('custom/css/all.min.css') }}">
     <!-- Ionicons -->
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <!-- Tempusdominus Bootstrap 4 -->
     <link rel="stylesheet"
-          href="{{ asset('backend/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css') }}">
+          href="{{ asset('custom/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css') }}">
     <!-- iCheck -->
-    <link rel="stylesheet" href="{{ asset('backend/plugins/icheck-bootstrap/icheck-bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('custom/plugins/icheck-bootstrap/icheck-bootstrap.min.css') }}">
     <!-- JQVMap -->
-    <link rel="stylesheet" href="{{ asset('backend/plugins/jqvmap/jqvmap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('custom/plugins/jqvmap/jqvmap.min.css') }}">
     <!-- Select2 -->
-    <link rel="stylesheet" href="{{ asset('backend/plugins/select2/css/select2.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('backend/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('custom/plugins/select2/css/select2.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('custom/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css') }}">
     <!-- Theme style -->
-    <link rel="stylesheet" href="{{ asset('backend/css/adminlte.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('custom/css/adminlte.min.css') }}">
     <!-- overlayScrollbars -->
-    <link rel="stylesheet" href="{{ asset('backend/plugins/overlayScrollbars/css/OverlayScrollbars.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('custom/plugins/overlayScrollbars/css/OverlayScrollbars.min.css') }}">
     <!-- Daterange picker -->
-    <link rel="stylesheet" href="{{ asset('backend/plugins/daterangepicker/daterangepicker.css') }}">
+    <link rel="stylesheet" href="{{ asset('custom/plugins/daterangepicker/daterangepicker.css') }}">
     <!-- summernote -->
-    <link rel="stylesheet" href="{{ asset('backend/plugins/summernote/summernote-bs4.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('custom/plugins/summernote/summernote-bs4.min.css') }}">
+    <!-- dalacode styles -->
+    <link rel="stylesheet" href="{{ asset('custom/css/dalacode.css') }}">
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
@@ -74,9 +76,14 @@
                     <i class="fas fa-expand-arrows-alt"></i>
                 </a>
             </li>
-            <li class="nav-item ml-3">
+            <li class="nav-item">
                 <a class="nav-link" href="#" role="button">
-                    <i style="color: #007bff" class="fas fa-th-large"></i>
+                    <i class="fas fa-th-large"></i>
+                </a>
+            </li>
+            <li class="nav-item ml-3">
+                <a class="nav-link" href="{{ route('backend.logout') }}" role="button">
+                    <i style="color: #007bff" class="fas fa-sign-out-alt"></i>
                 </a>
             </li>
         </ul>
@@ -91,7 +98,7 @@
             <!-- Sidebar user panel (optional) -->
             <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                 <div class="info">
-                    <span class="d-block c-white">Admin</span>
+                    <span class="d-block text-white">{{ auth()->user()->short_name }}</span>
                 </div>
             </div>
 
@@ -109,6 +116,29 @@
                                 Панель управления
                             </p>
                         </a>
+                    </li>
+                    <li class="nav-item menu-open">
+                        <a href="#" class="nav-link active">
+                            <i class="nav-icon fas fa-file-alt"></i>
+                            <p>
+                                Заявки
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="#"
+                                   class="nav-link">
+                                    <p>Все Заявки</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#"
+                                   class="nav-link">
+                                    <p>Новая заявку</p>
+                                </a>
+                            </li>
+                        </ul>
                     </li>
                 </ul>
             </nav>
@@ -129,7 +159,7 @@
                     <div class="col-sm-12">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item">
-                                <a href="{{ route('backend.index', ['locale' => app()->getLocale()]) }}">{{ __('messages.home') }}</a>
+                                <a href="#">Панель управления</a>
                             </li>
                             @yield('breadcrumbs')
                         </ol>
@@ -147,7 +177,7 @@
     </div>
     <!-- /.content-wrapper -->
     <footer class="main-footer">
-        <strong>Copyright &copy; {{ now()->format('Y') }} «Qaz Qoldau» CC.</strong>
+        <strong>Copyright &copy; {{ now()->format('Y') }} «Company name» CC.</strong>
         All rights reserved.
         <div class="float-right d-none d-sm-inline-block">
             <b>Developed by</b> <a href="https://dalacode.kz">dalacode</a>
@@ -164,23 +194,25 @@
 
 
 <!-- jQuery -->
-<script src="{{ asset('backend/plugins/jquery/jquery.min.js') }}"></script>
+<script src="{{ asset('custom/plugins/jquery/jquery.min.js') }}"></script>
 <!-- jQuery UI 1.11.4 -->
-<script src="{{ asset('backend/plugins/jquery-ui/jquery-ui.min.js') }}"></script>
+<script src="{{ asset('custom/plugins/jquery-ui/jquery-ui.min.js') }}"></script>
 <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
 <script>
     $.widget.bridge('uibutton', $.ui.button)
 </script>
 <!-- Bootstrap 4 -->
-<script src="{{ asset('backend/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+<script src="{{ asset('custom/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 <!-- AdminLTE App -->
-<script src="{{ asset('backend/js/adminlte.min.js') }}"></script>
+<script src="{{ asset('custom/js/adminlte.min.js') }}"></script>
 <!-- Summernote -->
-<script src="{{ asset('/backend/plugins/summernote/summernote.min.js') }}"></script>
-<script src="{{ asset('/backend/plugins/summernote/lang/summernote-ru-RU.min.js') }}"></script>
+<script src="{{ asset('/custom/plugins/summernote/summernote.min.js') }}"></script>
+<script src="{{ asset('/custom/plugins/summernote/lang/summernote-ru-RU.min.js') }}"></script>
 <!-- Cleave -->
-<script src="{{ asset('backend/js/cleave.min.js') }}"></script>
-<script src="{{ asset('backend/js/cleave.jquery.js') }}"></script>
+<script src="{{ asset('custom/js/cleave.min.js') }}"></script>
+<script src="{{ asset('custom/js/cleave.jquery.js') }}"></script>
+<!-- dalacode -->
+<script src="{{ asset('custom/js/dalacode.js') }}"></script>
 
 @yield('page-scripts')
 </body>
