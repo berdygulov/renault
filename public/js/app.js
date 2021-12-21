@@ -2068,11 +2068,8 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 /*!***********************************!*\
   !*** ./resources/js/bootstrap.js ***!
   \***********************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-Object(function webpackMissingModule() { var e = new Error("Cannot find module 'laravel-echo'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
 window._ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
 /**
  * We'll load the axios HTTP library which allows us to easily issue requests
@@ -2087,22 +2084,25 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
  * for events that are broadcast by Laravel. Echo and event broadcasting
  * allows your team to easily build robust real-time web applications.
  */
-
-
-window.Pusher = __webpack_require__(Object(function webpackMissingModule() { var e = new Error("Cannot find module 'pusher-js'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
-window.Echo = new Object(function webpackMissingModule() { var e = new Error("Cannot find module 'laravel-echo'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())({
-  broadcaster: 'pusher',
-  key: '181e792bb87fca92b171',
-  cluster: 'ap2',
-  forceTLS: true
-});
-var pusher = new Pusher('181e792bb87fca92b171', {
-  cluster: 'ap2'
-});
-var channel = pusher.subscribe('application');
-channel.bind('application-created', function (data) {
-  console.log(JSON.stringify(data));
-});
+// import Echo from 'laravel-echo';
+//
+// window.Pusher = require('pusher-js');
+//
+// window.Echo = new Echo({
+// 	broadcaster: 'pusher',
+// 	key: '181e792bb87fca92b171',
+// 	cluster: 'ap2',
+// 	forceTLS: true
+// });
+//
+// var pusher = new Pusher('181e792bb87fca92b171', {
+// 	cluster: 'ap2'
+// });
+//
+// var channel = pusher.subscribe('application');
+// channel.bind('application-created', function (data) {
+// 	console.log(JSON.stringify(data));
+// });
 
 /***/ }),
 
