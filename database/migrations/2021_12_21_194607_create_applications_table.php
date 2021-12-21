@@ -31,13 +31,13 @@ class CreateApplicationsTable extends Migration
 
             /* Application info */
             $table->timestamp('date_time');
-            $table->string('type_of_work');
             $table->integer('approximate _duration')->nullable();
             $table->string('description')->nullable();
             $table->string('status');
 
             /* Relations */
             $table->foreignId('user_id')->constrained();
+            $table->foreignId('service_id')->constrained();
 
             $table->timestamps();
         });

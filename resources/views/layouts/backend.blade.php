@@ -238,6 +238,8 @@
 <!-- Cleave -->
 <script src="{{ asset('custom/js/cleave.min.js') }}"></script>
 <script src="{{ asset('custom/js/cleave.jquery.js') }}"></script>
+<!-- Jquery Input Mask -->
+<script src="{{ asset('custom/plugins/inputmask/jquery.inputmask.min.js') }}"></script>
 <!-- dalacode -->
 <script src="{{ asset('custom/js/dalacode.js') }}"></script>
 
