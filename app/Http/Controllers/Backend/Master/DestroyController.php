@@ -20,6 +20,6 @@ class DestroyController extends Controller
 
         return redirect()
             ->route('backend.masters.index')
-            ->with('master_crud_success', 'Мастер успешно удален.');
+            ->with('crud_success', 'Мастер успешно удален.');
     }
 }

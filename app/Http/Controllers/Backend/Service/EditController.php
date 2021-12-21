@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\Backend\Master;
+namespace App\Http\Controllers\Backend\Service;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class ShowController extends Controller
+class EditController extends Controller
 {
     /**
      * Handle the incoming request.

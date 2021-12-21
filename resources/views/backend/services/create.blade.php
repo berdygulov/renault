@@ -1,6 +1,6 @@
 @extends('layouts.backend')
 
-@section('title', 'Добавление мастера')
+@section('title', 'Добавление услуги')
 
 @section('content')
     <div class="container">
@@ -14,39 +14,33 @@
                 @endif
                 <div class="card card-primary">
                     <div class="card-header">
-                        <h3 class="card-title">Добавление мастера</h3>
+                        <h3 class="card-title">Добавление услуги</h3>
                     </div>
                     <!-- /.card-header -->
                     <!-- form start -->
-                    <form action="{{ isset($master) ? route('backend.masters.update', ['master_id' => $master->id]) : route('backend.masters.store') }}" method="POST">
+                    <form action="{{ isset($service) ? route('backend.services.update', ['service_id' => $service->id]) : route('backend.services.store') }}" method="POST">
                         @csrf
-                        @if(isset($master))
+                        @if(isset($service))
                             @method('patch')
                         @endif
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-4">
                                     <div class="form-group">
-                                        <label for="surname">Фамилия *</label>
-                                        <input type="text" name="surname" class="form-control @error('surname') is-invalid @enderror" id="surname" value="{{ $master->surname ?? old('surname') }}" placeholder="Введите фамилию мастера">
+                                        <label for="name">Название услуги *</label>
+                                        <input type="text" name="name" class="form-control @error('name') is-invalid @enderror" id="surname" value="{{ $service->name ?? old('name') }}" placeholder="Введите название услуги">
                                     </div>
                                 </div>
                                 <div class="col-4">
                                     <div class="form-group">
-                                        <label for="name">Имя *</label>
-                                        <input type="text" name="name" class="form-control @error('name') is-invalid @enderror" id="name" value="{{ $master->name ?? old('name') }}" placeholder="Введите имя мастера">
+                                        <label for="name">Описание *</label>
+                                        <input type="text" name="name" class="form-control @error('name') is-invalid @enderror" id="name" value="{{ $service->name ?? old('name') }}" placeholder="Введите имя мастера">
                                     </div>
                                 </div>
                                 <div class="col-4">
                                     <div class="form-group">
-                                        <label for="patronymic">Отчество</label>
-                                        <input type="text" name="patronymic" class="form-control" id="patronymic" value="{{$master->patronymic ?? old('patronymic') }}" placeholder="Введите отчество мастера">
-                                    </div>
-                                </div>
-                                <div class="col-4">
-                                    <div class="form-group">
-                                        <label for="position">Позиция (должность)</label>
-                                        <input type="text" name="position" class="form-control" id="position" value="{{ $master->position ?? old('position') }}" placeholder="Например, механик">
+                                        <label>Краткое описание услуги</label>
+                                        <textarea class="form-control" name="description" rows="3" placeholder="Краткое описание..."></textarea>
                                     </div>
                                 </div>
                             </div>
@@ -55,7 +49,7 @@
 
                         <div class="card-footer">
                             <button type="submit" class="btn btn-primary">
-                                @if(isset($master))
+                                @if(isset($service))
                                     Сохранить
                                 @else
                                     Отправить
