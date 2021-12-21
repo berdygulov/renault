@@ -110,7 +110,7 @@
                          with font-awesome or any other icon font library -->
                     <li class="nav-item">
                         <a href="#"
-                           class="nav-link active">
+                           class="nav-link">
                             <i class="nav-icon fas fa-tachometer-alt"></i>
                             <p>
                                 Панель управления
@@ -118,7 +118,7 @@
                         </a>
                     </li>
                     <li class="nav-item menu-open">
-                        <a href="#" class="nav-link active">
+                        <a href="#" class="nav-link">
                             <i class="nav-icon fas fa-file-alt"></i>
                             <p>
                                 Заявки
@@ -136,6 +136,29 @@
                                 <a href="#"
                                    class="nav-link">
                                     <p>Новая заявку</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fas fa-tools"></i>
+                            <p>
+                                Мастера
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="{{ route('backend.masters.index') }}"
+                                   class="nav-link">
+                                    <p>Все мастера</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ route('backend.masters.create') }}"
+                                   class="nav-link">
+                                    <p>Новый мастер</p>
                                 </a>
                             </li>
                         </ul>
@@ -199,7 +222,7 @@
 <script src="{{ asset('custom/plugins/jquery-ui/jquery-ui.min.js') }}"></script>
 <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
 <script>
-    $.widget.bridge('uibutton', $.ui.button)
+	$.widget.bridge('uibutton', $.ui.button)
 </script>
 <!-- Bootstrap 4 -->
 <script src="{{ asset('custom/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>

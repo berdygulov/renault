@@ -9,7 +9,7 @@ class QueueList extends Component
 {
     public $applications;
 
-    public function mount()
+    public function booted()
     {
         $this->applications = Application::where('status', '!=', 'done')
             ->get();

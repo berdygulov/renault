@@ -21,6 +21,17 @@ use App\Http\Controllers\Backend\IndexController as BackendIndex;
 use App\Http\Controllers\Application\ShowController as ApplicationShow;
 use App\Http\Controllers\Application\CreateController as ApplicationCreate;
 
+/**
+ * Master Controllers
+ */
+
+use App\Http\Controllers\Backend\Master\IndexController as MasterIndex;
+use App\Http\Controllers\Backend\Master\CreateController as MasterCreate;
+use App\Http\Controllers\Backend\Master\StoreController as MasterStore;
+use App\Http\Controllers\Backend\Master\ShowController as MasterShow;
+use App\Http\Controllers\Backend\Master\EditController as MasterEdit;
+use App\Http\Controllers\Backend\Master\UpdateController as MasterUpdate;
+use App\Http\Controllers\Backend\Master\DestroyController as MasterDestroy;
 
 /*
 |--------------------------------------------------------------------------
@@ -64,11 +75,27 @@ Route::group([
     /* Applications Controller */
     Route::group([
         'prefix' => 'applications',
-        'as' => 'applications.',
+        'as'     => 'applications.',
     ], function () {
 //        Route::get('/', ApplicationIndex::class)->name('index');
         Route::get('/create', ApplicationCreate::class)->name('create');
 //        Route::post('/', ApplicationStore::class)->name('store');
         Route::get('/{application_id}', ApplicationShow::class)->name('show');
+    });
+
+    /**
+     * Master Routes
+     */
+    Route::group([
+        'prefix' => 'masters',
+        'as'     => 'masters.'
+    ], function () {
+        Route::get('/', MasterIndex::class)->name('index');
+        Route::get('create', MasterCreate::class)->name('create');
+        Route::get('store', MasterStore::class)->name('store');
+        Route::get('show', MasterShow::class)->name('show');
+        Route::get('edit', MasterEdit::class)->name('edit');
+        Route::get('update', MasterUpdate::class)->name('update');
+        Route::get('delete', MasterDestroy::class)->name('delete');
     });
 });
