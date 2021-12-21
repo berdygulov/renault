@@ -1,0 +1,53 @@
+.c-white {
+    color: #fff;
+}
+
+img {
+    max-width: 100%;
+}
+
+.table-tr-red {
+    background: #FF1919;
+}
+
+.table-tr-green {
+    background: #00BA29;
+}
+
+.table-tr-yellow {
+    background: #FEB922;
+}
+
+.program-actions .btn {
+    margin-top: 0.3rem;
+}
+
+.categories-btn .btn {
+    margin-top: 0.3rem;
+}
+
+.program-add span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 3rem;
+    height: 3rem;
+}
+
+.program-add span i {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #17a2b8;
+}
+
+.select2.select2-container.select2-container--default {
+    width: 100% !important;
+}
+
+.loading-text {
+    font-size: 80%;
+    color: orange;
+    margin-top: .25rem;
+    display: none;
+}
+
