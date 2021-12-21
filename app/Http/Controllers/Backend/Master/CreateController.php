@@ -15,6 +15,6 @@ class CreateController extends Controller
      */
     public function __invoke(Request $request)
     {
-        //
+        return view('backend.masters.create');
     }
 }

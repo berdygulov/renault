@@ -92,10 +92,10 @@ Route::group([
     ], function () {
         Route::get('/', MasterIndex::class)->name('index');
         Route::get('create', MasterCreate::class)->name('create');
-        Route::get('store', MasterStore::class)->name('store');
+        Route::post('store', MasterStore::class)->name('store');
         Route::get('show', MasterShow::class)->name('show');
-        Route::get('edit', MasterEdit::class)->name('edit');
-        Route::get('update', MasterUpdate::class)->name('update');
-        Route::get('delete', MasterDestroy::class)->name('delete');
+        Route::get('edit/{master_id}', MasterEdit::class)->name('edit');
+        Route::patch('update/{master_id}', MasterUpdate::class)->name('update');
+        Route::get('delete/{master_id}', MasterDestroy::class)->name('delete');
     });
 });

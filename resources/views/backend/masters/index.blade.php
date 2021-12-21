@@ -6,12 +6,17 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
+                @if(session()->has('master_crud_success'))
+                    <div class="alert alert-success alert-dismissible">
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                        <h5><i class="icon fas fa-check"></i> {{ session('master_crud_success') }}</h5>
+                    </div>
+                @endif
                 <div class="card-body table-responsive p-0">
-                    <table class="table table-hover text-nowrap">
+                    <table class="table table-hover text-nowrap mb-4">
                         <thead>
                         <tr>
                             <th>ФИО</th>
-                            <th>Услуги</th>
                             <th class="text-right">Действия</th>
                         </tr>
                         </thead>
@@ -19,23 +24,10 @@
                         @forelse($masters as $master)
                             <tr>
                                 <td>{{ $master->full_name }}</td>
-                                <td>
-                                    <ul>
-                                        @forelse($master->services as $service)
-                                            <li>
-                                                {{ $service->name }}
-                                            </li>
-                                        @empty
-                                            <li>
-                                                Нет привязанных услуг...
-                                            </li>
-                                        @endforelse
-                                    </ul>
-                                </td>
                                 <td class="text-right">
                                     <div class="btn-group btn-group-sm">
-                                        <a href="#" class="btn btn-info"><i class="fas fa-eye"></i></a>
-                                        <a href="#" class="btn btn-danger"><i class="fas fa-trash"></i></a>
+                                        <a href="{{ route('backend.masters.edit', ['master_id' => $master->id]) }}" class="btn btn-info"><i class="fas fa-pen"></i></a>
+                                        <a href="{{ route('backend.masters.delete', ['master_id' => $master->id]) }}" class="btn btn-danger"><i class="fas fa-trash"></i></a>
                                     </div>
                                 </td>
                             </tr>
@@ -48,6 +40,7 @@
                     </table>
                 </div>
                 <!-- /.card-body -->
+                {{ $masters->links('vendor.pagination.bootstrap-4') }}
             </div>
         </div>
     </div>
