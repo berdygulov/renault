@@ -3,12 +3,12 @@
 namespace App\Http\Controllers\Application;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
+use App\Http\Requests\StoreApplicationRequest;
 
 class StoreController extends Controller
 {
-    public function __invoke()
+    public function __invoke(StoreApplicationRequest $request)
     {
-        return 'test';
+        dd($request->all());
     }
 }

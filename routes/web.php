@@ -20,6 +20,7 @@ use App\Http\Controllers\Backend\IndexController as BackendIndex;
 
 use App\Http\Controllers\Application\ShowController as ApplicationShow;
 use App\Http\Controllers\Application\CreateController as ApplicationCreate;
+use App\Http\Controllers\Application\StoreController as ApplicationStore;
 
 /**
  * Master Controllers
@@ -90,7 +91,7 @@ Route::group([
     ], function () {
 //        Route::get('/', ApplicationIndex::class)->name('index');
         Route::get('/create', ApplicationCreate::class)->name('create');
-//        Route::post('/', ApplicationStore::class)->name('store');
+        Route::post('/', ApplicationStore::class)->name('store');
         Route::get('/{application_id}', ApplicationShow::class)->name('show');
     });
 
@@ -114,7 +115,7 @@ Route::group([
      */
     Route::group([
         'prefix' => 'services',
-        'as'     => 'services.'
+        'as' => 'services.'
     ], function () {
         Route::get('/', ServiceIndex::class)->name('index');
         Route::get('create', ServiceCreate::class)->name('create');

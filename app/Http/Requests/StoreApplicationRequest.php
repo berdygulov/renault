@@ -13,7 +13,7 @@ class StoreApplicationRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -27,16 +27,16 @@ class StoreApplicationRequest extends FormRequest
             'client_surname' => 'required|alpha',
             'client_name' => 'required|alpha',
             'client_patronymic' => 'nullable|alpha',
-            'client_phone' => 'required|numeric',
-            'additional_phone' => 'nullable|numeric',
+            'client_phone' => 'required',
+            'additional_phone' => 'nullable',
             'car_brand' => 'required',
             'car_model' => 'required',
             'car_production_year' => 'nullable|numeric',
             'car_vin_number' => 'nullable|numeric',
-            'date_time ' => 'date:Y-m-d H:i:s',
+            'date_time' => 'required|date:Y-m-d H:i:s',
             'approximate_duration' => 'nullable|numeric',
             'description' => 'nullable',
-            'user_id' => 'required',
+            'services' => 'required',
             'master_id' => 'required',
         ];
     }
