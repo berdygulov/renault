@@ -108,7 +108,7 @@
                     data-accordion="false">
                     <!-- Add icons to the links using the .nav-icon class
                          with font-awesome or any other icon font library -->
-                    <li class="nav-item menu-open">
+                    <li class="nav-item @if(Route::is('backend.applications.*')) menu-open active @endif">
                         <a href="#" class="nav-link">
                             <i class="nav-icon fas fa-file-alt"></i>
                             <p>
@@ -118,20 +118,20 @@
                         </a>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                <a href="#"
-                                   class="nav-link">
-                                    <p>Все Заявки</p>
+                                <a href="{{ route('backend.applications.index') }}"
+                                   class="nav-link @if(Route::is('backend.applications.index')) active @endif">
+                                    <p>Все заявки</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="#"
-                                   class="nav-link">
-                                    <p>Новая заявку</p>
+                                <a href="{{ route('backend.applications.create') }}"
+                                   class="nav-link @if(Route::is('backend.applications.create')) active @endif">
+                                    <p>Новая заявка</p>
                                 </a>
                             </li>
                         </ul>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item @if(Route::is('backend.masters.*')) menu-open active @endif">
                         <a href="#" class="nav-link">
                             <i class="nav-icon fas fa-tools"></i>
                             <p>
@@ -142,19 +142,19 @@
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
                                 <a href="{{ route('backend.masters.index') }}"
-                                   class="nav-link">
+                                   class="nav-link @if(Route::is('backend.masters.index')) active @endif">
                                     <p>Все мастера</p>
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a href="{{ route('backend.masters.create') }}"
-                                   class="nav-link">
+                                   class="nav-link @if(Route::is('backend.masters.create')) active @endif">
                                     <p>Новый мастер</p>
                                 </a>
                             </li>
                         </ul>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item @if(Route::is('backend.services.*')) menu-open active @endif">
                         <a href="#" class="nav-link">
                             <i class="nav-icon fas fa-hand-holding-medical"></i>
                             <p>
@@ -165,13 +165,13 @@
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
                                 <a href="{{ route('backend.services.index') }}"
-                                   class="nav-link">
+                                   class="nav-link @if(Route::is('backend.services.index')) active @endif">
                                     <p>Все услуги</p>
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a href="{{ route('backend.services.create') }}"
-                                   class="nav-link">
+                                   class="nav-link @if(Route::is('backend.services.create')) active @endif">
                                     <p>Новая услуга</p>
                                 </a>
                             </li>

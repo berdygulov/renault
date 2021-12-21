@@ -12,6 +12,8 @@ class QueueList extends Component
     public function booted()
     {
         $this->applications = Application::where('status', '!=', 'done')
+            ->where('date_time', '>', now())
+            ->orderBy('date_time')
             ->get();
     }
 
