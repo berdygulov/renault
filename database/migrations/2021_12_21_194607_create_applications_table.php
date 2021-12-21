@@ -31,7 +31,7 @@ class CreateApplicationsTable extends Migration
 
             /* Application info */
             $table->timestamp('date_time');
-            $table->integer('approximate _duration')->nullable();
+            $table->integer('approximate_duration')->nullable();
             $table->string('description')->nullable();
             $table->string('status');
 
