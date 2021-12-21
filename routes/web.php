@@ -73,8 +73,8 @@ Route::group([
 
 Route::group([
     'middleware' => 'auth',
-    'prefix' => 'backend',
-    'as' => 'backend.',
+    'prefix'     => 'backend',
+    'as'         => 'backend.',
 ], function () {
     /*
      * Backend Index Controllers
@@ -87,7 +87,7 @@ Route::group([
     /* Applications Controller */
     Route::group([
         'prefix' => 'applications',
-        'as' => 'applications.',
+        'as'     => 'applications.',
     ], function () {
 //        Route::get('/', ApplicationIndex::class)->name('index');
         Route::get('/create', ApplicationCreate::class)->name('create');
@@ -100,11 +100,11 @@ Route::group([
      */
     Route::group([
         'prefix' => 'masters',
-        'as' => 'masters.'
+        'as'     => 'masters.'
     ], function () {
         Route::get('/', MasterIndex::class)->name('index');
         Route::get('create', MasterCreate::class)->name('create');
-        Route::post('store', MasterStore::class)->name('store');
+        Route::post('/', MasterStore::class)->name('store');
         Route::get('edit/{master_id}', MasterEdit::class)->name('edit');
         Route::patch('update/{master_id}', MasterUpdate::class)->name('update');
         Route::get('delete/{master_id}', MasterDestroy::class)->name('delete');
@@ -119,7 +119,7 @@ Route::group([
     ], function () {
         Route::get('/', ServiceIndex::class)->name('index');
         Route::get('create', ServiceCreate::class)->name('create');
-        Route::post('store', ServiceStore::class)->name('store');
+        Route::post('/', ServiceStore::class)->name('store');
         Route::get('edit/{service_id}', ServiceEdit::class)->name('edit');
         Route::patch('update/{service_id}', ServiceUpdate::class)->name('update');
         Route::get('delete/{service_id}', ServiceDestroy::class)->name('delete');

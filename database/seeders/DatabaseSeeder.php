@@ -23,6 +23,7 @@ class DatabaseSeeder extends Seeder
             MasterSeeder::class,
             ServiceCategorySeeder::class,
             ServiceSeeder::class,
+            ApplicationSeeder::class,
         ]);
     }
 }
