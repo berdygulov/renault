@@ -16,6 +16,11 @@ use App\Http\Controllers\Auth\LogoutController;
 
 use App\Http\Controllers\Backend\IndexController as BackendIndex;
 
+/* Application Controller */
+
+use App\Http\Controllers\Application\ShowController as ApplicationShow;
+use App\Http\Controllers\Application\CreateController as ApplicationCreate;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -59,8 +64,9 @@ Route::group([
         'prefix' => 'applications',
         'as' => 'applications.',
     ], function () {
-        Route::get('/', ApplicationIndex::class)->name('index');
-//        Route::get('/create', ApplicationCreate::class)->name('create');
+//        Route::get('/', ApplicationIndex::class)->name('index');
+        Route::get('/create', ApplicationCreate::class)->name('create');
 //        Route::post('/', ApplicationStore::class)->name('store');
+        Route::get('/{application_id}', ApplicationShow::class)->name('show');
     });
 });

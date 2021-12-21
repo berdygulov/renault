@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <!-- Tempusdominus Bootstrap 4 -->
     <link rel="stylesheet"
-          href="{{ asset('custom/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css') }}">
+          href="{{ asset('custom/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.css') }}">
     <!-- iCheck -->
     <link rel="stylesheet" href="{{ asset('custom/plugins/icheck-bootstrap/icheck-bootstrap.min.css') }}">
     <!-- JQVMap -->
@@ -39,7 +39,7 @@
 <div class="wrapper">
 
     <!-- Navbar -->
-    <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+    <nav class="main-header navbar navbar-expand navbar-dark">
         <!-- Left navbar links -->
         <ul class="navbar-nav">
             <li class="nav-item">
@@ -203,6 +203,10 @@
 </script>
 <!-- Bootstrap 4 -->
 <script src="{{ asset('custom/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+<!-- Moment -->
+<script src="{{ asset('custom/plugins/moment/moment.min.js') }}"></script>
+<!-- Tempusdominus bootstrap 4 -->
+<script src="{{ asset('custom/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js') }}"></script>
 <!-- AdminLTE App -->
 <script src="{{ asset('custom/js/adminlte.min.js') }}"></script>
 <!-- Summernote -->
