@@ -33,6 +33,8 @@ use App\Http\Controllers\Application\CreateController as ApplicationCreate;
 |
 */
 
+Broadcast::routes();
+
 Route::get('/', FrontendIndex::class);
 
 /* Guest Controller */
@@ -48,8 +50,8 @@ Route::group([
 
 Route::group([
     'middleware' => 'auth',
-    'prefix' => 'backend',
-    'as' => 'backend.',
+    'prefix'     => 'backend',
+    'as'         => 'backend.',
 ], function () {
     /*
      * Backend Index Controllers
