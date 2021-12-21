@@ -15,7 +15,7 @@
                             <div class="col-12 col-lg-6">
                                 <!-- Date and time -->
                                 <div class="form-group">
-                                    <label>Имя:*</label>
+                                    <label>Имя: <span class="text-warning">*</span></label>
                                     <div class="input-group">
                                         <div class="input-group-prepend">
                                             <span class="input-group-text">
@@ -31,7 +31,7 @@
                             <div class="col-12 col-lg-6">
                                 <!-- Date and time -->
                                 <div class="form-group">
-                                    <label>Фамилия:*</label>
+                                    <label>Фамилия: <span class="text-warning">*</span></label>
                                     <div class="input-group">
                                         <div class="input-group-prepend">
                                             <span class="input-group-text">
@@ -61,7 +61,7 @@
                             <div class="col-12 col-lg-6">
                                 <!-- Phone number -->
                                 <div class="form-group">
-                                    <label>Телефон:*</label>
+                                    <label>Телефон: <span class="text-warning">*</span></label>
                                     <div class="input-group">
                                         <div class="input-group-prepend">
                                             <span class="input-group-text"><i class="fas fa-phone"></i></span>
@@ -91,7 +91,7 @@
                             <div class="col-12 col-lg-6">
                                 <!-- Car brand and time -->
                                 <div class="form-group">
-                                    <label>Марка автомобиля:*</label>
+                                    <label>Марка автомобиля: <span class="text-warning">*</span></label>
                                     <div class="input-group">
                                         <div class="input-group-prepend">
                                             <span class="input-group-text">
@@ -106,7 +106,7 @@
                             <div class="col-12 col-lg-6">
                                 <!-- Car model and time -->
                                 <div class="form-group">
-                                    <label>Модель:*</label>
+                                    <label>Модель: <span class="text-warning">*</span></label>
                                     <div class="input-group">
                                         <div class="input-group-prepend">
                                             <span class="input-group-text">
@@ -150,7 +150,7 @@
                             <div class="col-12 col-lg-6">
                                 <!-- Date and time -->
                                 <div class="form-group">
-                                    <label>Дата заявки:*</label>
+                                    <label>Дата заявки: <span class="text-warning">*</span></label>
                                     <div class="input-group date" id="date_time" data-target-input="nearest">
                                         <div class="input-group-prepend" data-target="#date_time"
                                              data-toggle="datetimepicker">
@@ -161,10 +161,81 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="col-12 col-lg-6">
+                                <!-- Approximate duration -->
+                                <div class="form-group">
+                                    <label> Примерная продолжительность(часы) (не обязательно):</label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><i class="fas fa-clock"></i></span>
+                                        </div>
+                                        <input name="approximate_duration" type="text" class="form-control"
+                                               placeholder="Введите продолжительность">
+                                    </div>
+                                    <!-- /.input group -->
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-6">
+                                <!-- Description -->
+                                <div class="form-group">
+                                    <label> Описание (не обязательно):</label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><i class="fas fa-clock"></i></span>
+                                        </div>
+                                        <input name="description" type="text" class="form-control"
+                                               placeholder="Введите описание">
+                                    </div>
+                                    <!-- /.input group -->
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-6">
+                                <!-- Services -->
+                                <div class="form-group">
+                                    <label> Услуги: <span class="text-warning">*</span></label>
+                                    <div class="input-group">
+                                        <div class="select2-info w-100">
+                                            <select class="select2" id="services"
+                                                    data-placeholder="Выберите услуги"
+                                                    data-dropdown-css-class="select2-info"
+                                                    name="services[]" multiple="multiple">
+                                                <option value="6">6</option>
+                                                <option value="7">7</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <!-- /.input group -->
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-6">
+                                <!-- Services -->
+                                <div class="form-group">
+                                    <label> Мастера: <span class="text-warning">*</span></label>
+                                    <div class="input-group">
+                                        <div class="select2-info w-100">
+                                            <select class="select2" id="masters" name="master_id"
+                                                    data-placeholder="Выберите мастера"
+                                                    data-dropdown-css-class="select2-info">
+                                                <option value="AL">Alabama</option>
+                                                <option value="WY">Wyoming</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <!-- /.input group -->
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="d-flex justify-content-end">
+                                    <button style="max-width: max-content;" type="button"
+                                            class="btn btn-block btn-info btn-md mb-3">Создать
+                                    </button>
+                                </div>
+                            </div>
                         </div>
                         <!-- /.form group -->
                         <div class="card-footer">
-                            Заявка будет автоматический помещена в очередь после создания!
+                                <span
+                                    class="text-muted">Заявка будет автоматический помещена в очередь после создания!</span>
                         </div>
                         <!-- /.card-body -->
                     </div>
@@ -176,6 +247,10 @@
 
 @section('page-scripts')
     <script type="text/javascript">
+        $('#services').select2();
+
+        $('#masters').select2();
+
         $(".maskinput").inputmask();
 
         $('#date_time').datetimepicker({
@@ -183,9 +258,6 @@
             format: 'YYYY-MM-DD HH:mm:ss',
             icons: {
                 time: "fa fa-clock",
-                date: "fa fa-calendar",
-                up: "fa fa-arrow-up",
-                down: "fa fa-arrow-down",
             },
         });
     </script>
