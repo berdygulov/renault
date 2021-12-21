@@ -11,10 +11,16 @@ class Master extends Model
 
     protected $guarded = [];
 
+    public function getFullNameAttribute()
+    {
+        if ($this->patronymic) {
+            return "{$this->surname} {$this->name} {$this->patronymic}";
+        }
+        return "{$this->surname} {$this->name}";
+    }
 
     public function services()
     {
         return $this->belongsToMany(Service::class, 'master_service');
     }
-
 }
