@@ -21,6 +21,6 @@ class UpdateController extends Controller
         $master->update($request->all());
 
         return back()
-            ->with('master_crud_success', 'Профиль мастера успешно обновлено!');
+            ->with('crud_success', 'Профиль мастера успешно обновлено!');
     }
 }

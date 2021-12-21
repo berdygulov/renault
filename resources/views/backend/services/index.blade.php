@@ -1,6 +1,6 @@
 @extends('layouts.backend')
 
-@section('title', 'Мастера')
+@section('title', 'Услуги')
 
 @section('content')
     <div class="container">
@@ -16,31 +16,35 @@
                     <table class="table table-hover text-nowrap mb-4">
                         <thead>
                         <tr>
-                            <th>ФИО</th>
+                            <th>Наименование услуги</th>
+                            <th>Категория</th>
+                            <th>Описание</th>
                             <th class="text-right">Действия</th>
                         </tr>
                         </thead>
                         <tbody>
-                        @forelse($masters as $master)
+                        @forelse($services as $service)
                             <tr>
-                                <td>{{ $master->full_name }}</td>
+                                <td>{{ $service->name }}</td>
+                                <td>{{ $service->category->name }}</td>
+                                <td>{{ $service->description }}</td>
                                 <td class="text-right">
                                     <div class="btn-group btn-group-sm">
-                                        <a href="{{ route('backend.masters.edit', ['master_id' => $master->id]) }}" class="btn btn-info"><i class="fas fa-pen"></i></a>
-                                        <a href="{{ route('backend.masters.delete', ['master_id' => $master->id]) }}" class="btn btn-danger"><i class="fas fa-trash"></i></a>
+                                        <a href="{{ route('backend.services.edit', ['service_id' => $service->id]) }}" class="btn btn-info"><i class="fas fa-pen"></i></a>
+                                        <a href="{{ route('backend.services.delete', ['service_id' => $service->id]) }}" class="btn btn-danger"><i class="fas fa-trash"></i></a>
                                     </div>
                                 </td>
                             </tr>
                         @empty
                             <tr>
-                                <td colspan="3"><span>Не добавлено ни одного мастера</span></td>
+                                <td colspan="3"><span>Не добавлено ни одной услуги</span></td>
                             </tr>
                         @endforelse
                         </tbody>
                     </table>
                 </div>
                 <!-- /.card-body -->
-                {{ $masters->links('vendor.pagination.bootstrap-4') }}
+                {{ $services->links('vendor.pagination.bootstrap-4') }}
             </div>
         </div>
     </div>

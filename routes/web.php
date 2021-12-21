@@ -33,6 +33,17 @@ use App\Http\Controllers\Backend\Master\EditController as MasterEdit;
 use App\Http\Controllers\Backend\Master\UpdateController as MasterUpdate;
 use App\Http\Controllers\Backend\Master\DestroyController as MasterDestroy;
 
+/**
+ * Service Controllers
+ */
+
+use App\Http\Controllers\Backend\Service\IndexController as ServiceIndex;
+use App\Http\Controllers\Backend\Service\CreateController as ServiceCreate;
+use App\Http\Controllers\Backend\Service\StoreController as ServiceStore;
+use App\Http\Controllers\Backend\Service\EditController as ServiceEdit;
+use App\Http\Controllers\Backend\Service\UpdateController as ServiceUpdate;
+use App\Http\Controllers\Backend\Service\DestroyController as ServiceDestroy;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -93,9 +104,23 @@ Route::group([
         Route::get('/', MasterIndex::class)->name('index');
         Route::get('create', MasterCreate::class)->name('create');
         Route::post('store', MasterStore::class)->name('store');
-        Route::get('show', MasterShow::class)->name('show');
         Route::get('edit/{master_id}', MasterEdit::class)->name('edit');
         Route::patch('update/{master_id}', MasterUpdate::class)->name('update');
         Route::get('delete/{master_id}', MasterDestroy::class)->name('delete');
+    });
+
+    /**
+     * Service Routes
+     */
+    Route::group([
+        'prefix' => 'services',
+        'as'     => 'services.'
+    ], function () {
+        Route::get('/', ServiceIndex::class)->name('index');
+        Route::get('create', ServiceCreate::class)->name('create');
+        Route::post('store', ServiceStore::class)->name('store');
+        Route::get('edit/{service_id}', ServiceEdit::class)->name('edit');
+        Route::patch('update/{service_id}', ServiceUpdate::class)->name('update');
+        Route::get('delete/{service_id}', ServiceDestroy::class)->name('delete');
     });
 });

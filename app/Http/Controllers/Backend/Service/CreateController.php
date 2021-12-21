@@ -1,12 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\Backend\Master;
+namespace App\Http\Controllers\Backend\Service;
 
 use App\Http\Controllers\Controller;
-use App\Models\Master;
+use App\Models\Service;
+use App\Models\ServiceCategory;
 use Illuminate\Http\Request;
 
-class IndexController extends Controller
+class CreateController extends Controller
 {
     /**
      * Handle the incoming request.
@@ -16,10 +17,8 @@ class IndexController extends Controller
      */
     public function __invoke(Request $request)
     {
-        $masters = Master::with('services')
-            ->orderBy('surname')
-            ->paginate(10);
+        $service_categories = ServiceCategory::all();
 
-        return view('backend.masters.index', compact('masters'));
+        return view('backend.services.create', compact('service_categories'));
     }
 }

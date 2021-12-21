@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Http\Controllers\Backend\Master;
+namespace App\Http\Controllers\Backend\Service;
 
 use App\Http\Controllers\Controller;
-use App\Models\Master;
+use App\Models\Service;
 use Illuminate\Http\Request;
 
 class IndexController extends Controller
@@ -16,10 +16,9 @@ class IndexController extends Controller
      */
     public function __invoke(Request $request)
     {
-        $masters = Master::with('services')
-            ->orderBy('surname')
+        $services = Service::orderBy('name')
             ->paginate(10);
 
-        return view('backend.masters.index', compact('masters'));
+        return view('backend.services.index', compact('services'));
     }
 }

@@ -20,6 +20,6 @@ class StoreController extends Controller
 
         return redirect()
             ->route('backend.masters.index')
-            ->with('master_crud_success', 'Новый мастер успешно добавлен!');
+            ->with('crud_success', 'Новый мастер успешно добавлен!');
     }
 }
