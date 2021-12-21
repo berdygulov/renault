@@ -17,6 +17,7 @@ class IndexController extends Controller
     public function __invoke(Request $request)
     {
         $masters = Master::with('services')
+            ->orderBy('surname')
             ->paginate(10);
 
         return view('backend.masters.index', compact('masters'));

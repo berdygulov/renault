@@ -199,8 +199,9 @@
                                                     data-placeholder="Выберите услуги"
                                                     data-dropdown-css-class="select2-info"
                                                     name="services[]" multiple="multiple">
-                                                <option value="6">6</option>
-                                                <option value="7">7</option>
+                                                @foreach($services as $service)
+                                                    <option value="{{ $service->id }}">{{ $service->name }}</option>
+                                                @endforeach
                                             </select>
                                         </div>
                                     </div>
@@ -235,7 +236,7 @@
                         <!-- /.form group -->
                         <div class="card-footer">
                                 <span
-                                    class="text-muted">Заявка будет автоматический помещена в очередь после создания!</span>
+                                        class="text-muted">Заявка будет автоматический помещена в очередь после создания!</span>
                         </div>
                         <!-- /.card-body -->
                     </div>
@@ -247,19 +248,19 @@
 
 @section('page-scripts')
     <script type="text/javascript">
-        $('#services').select2();
+		$('#services').select2();
 
-        $('#masters').select2();
+		$('#masters').select2();
 
-        $(".maskinput").inputmask();
+		$(".maskinput").inputmask();
 
-        $('#date_time').datetimepicker({
-            locale: 'RU',
-            format: 'YYYY-MM-DD HH:mm:ss',
-            icons: {
-                time: "fa fa-clock",
-            },
-        });
+		$('#date_time').datetimepicker({
+			locale: 'RU',
+			format: 'YYYY-MM-DD HH:mm:ss',
+			icons: {
+				time: "fa fa-clock",
+			},
+		});
     </script>
 @endsection
 

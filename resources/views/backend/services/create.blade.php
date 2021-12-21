@@ -33,14 +33,25 @@
                                 </div>
                                 <div class="col-4">
                                     <div class="form-group">
-                                        <label for="name">Описание *</label>
-                                        <input type="text" name="name" class="form-control @error('name') is-invalid @enderror" id="name" value="{{ $service->name ?? old('name') }}" placeholder="Введите имя мастера">
+                                        <label> Категория: <span class="text-warning">*</span></label>
+                                        <div class="input-group">
+                                            <div class="select2-info w-100">
+                                                <select name="service_category_id" class="select2" id="service_categories"
+                                                        data-placeholder="Выберите категорию"
+                                                        data-dropdown-css-class="select2-info">
+                                                    @foreach($service_categories as $category)
+                                                        <option value="{{ $category->id }}" @if(isset($service) && $service->service_category_id == $category->id) selected @endif>{{ $category->name }}</option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <!-- /.input group -->
                                     </div>
                                 </div>
-                                <div class="col-4">
+                                <div class="col-8">
                                     <div class="form-group">
                                         <label>Краткое описание услуги</label>
-                                        <textarea class="form-control" name="description" rows="3" placeholder="Краткое описание..."></textarea>
+                                        <textarea class="form-control" name="description" rows="3" placeholder="Краткое описание...">{{ $service->description ?? old('description') }}</textarea>
                                     </div>
                                 </div>
                             </div>
@@ -61,4 +72,12 @@
             </div>
         </div>
     </div>
+@endsection
+
+@section('page-scripts')
+    <script type="text/javascript">
+		$('#service_categories').select2({
+			minimumResultsForSearch: 5
+		});
+    </script>
 @endsection
