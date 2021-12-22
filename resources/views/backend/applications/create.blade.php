@@ -178,6 +178,54 @@
                                     </div>
                                 </div>
                                 <div class="col-12 col-lg-6">
+                                    <!-- Services -->
+                                    <div class="form-group">
+                                        <label> Услуги: <span class="text-warning">*</span></label>
+                                        <div class="input-group">
+                                            <div class="select2-info w-100">
+                                                <select class="select2"
+                                                        id="services"
+                                                        data-placeholder="Выберите услуги"
+                                                        data-dropdown-css-class="select2-info"
+                                                        name="services[]" multiple="multiple">
+                                                    @foreach($service_categories as $service_category)
+                                                        <option
+                                                            value="null" disabled>{{ $service_category->name }}
+                                                        </option>
+                                                        @foreach($service_category->services as $service)
+                                                            <option
+                                                                value="{{ $service->id }}">{{ $service->name }}
+                                                            </option>
+                                                        @endforeach
+                                                    @endforeach
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <!-- /.input group -->
+                                    </div>
+                                </div>
+                                <div class="col-12 col-lg-6">
+                                    <!-- Masters -->
+                                    <div class="form-group">
+                                        <label> Мастера: <span class="text-warning">*</span></label>
+                                        <div class="input-group">
+                                            <div class="select2-info w-100">
+                                                <select class="select2"
+                                                        id="masters" name="master_id"
+                                                        data-placeholder="Выберите мастера"
+                                                        data-dropdown-css-class="select2-info">
+                                                    <option value="" selected>Выберите мастера</option>
+                                                    @foreach($masters as $master)
+                                                        <option
+                                                            value="{{ $master->id }}">{{ $master->short_name . ' (' . $master->position . ')'}}</option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <!-- /.input group -->
+                                    </div>
+                                </div>
+                                <div class="col-12 col-lg-6">
                                     <!-- Approximate duration -->
                                     <div class="form-group">
                                         <label> Примерная продолжительность(часы) (не обязательно):</label>
@@ -204,46 +252,6 @@
                                             <input name="description" type="text" value="{{ old('description') }}"
                                                    class="@error('description') is-invalid @enderror form-control"
                                                    placeholder="Введите описание">
-                                        </div>
-                                        <!-- /.input group -->
-                                    </div>
-                                </div>
-                                <div class="col-12 col-lg-6">
-                                    <!-- Services -->
-                                    <div class="form-group">
-                                        <label> Услуги: <span class="text-warning">*</span></label>
-                                        <div class="input-group">
-                                            <div class="select2-info w-100">
-                                                <select class="select2"
-                                                        id="services"
-                                                        data-placeholder="Выберите услуги"
-                                                        data-dropdown-css-class="select2-info"
-                                                        name="services[]" multiple="multiple">
-                                                    @foreach($services as $service)
-                                                        <option
-                                                            value="{{ $service->id }}">{{ $service->name . '--' . $service->category->name }}</option>
-                                                    @endforeach
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <!-- /.input group -->
-                                    </div>
-                                </div>
-                                <div class="col-12 col-lg-6">
-                                    <!-- Masters -->
-                                    <div class="form-group">
-                                        <label> Мастера: <span class="text-warning">*</span></label>
-                                        <div class="input-group">
-                                            <div class="select2-info w-100">
-                                                <select class="select2"
-                                                        id="masters" name="master_id"
-                                                        data-placeholder="Выберите мастера"
-                                                        data-dropdown-css-class="select2-info">
-                                                    <option value="" selected>Выберите мастера</option>
-                                                    <option value="AL">Alabama</option>
-                                                    <option value="WY">Wyoming</option>
-                                                </select>
-                                            </div>
                                         </div>
                                         <!-- /.input group -->
                                     </div>

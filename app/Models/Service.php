@@ -21,4 +21,9 @@ class Service extends Model
     {
         return $this->belongsToMany(Master::class, 'master_service');
     }
+
+    public function applications()
+    {
+        return $this->belongsToMany(Application::class, 'application_service');
+    }
 }

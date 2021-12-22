@@ -32,7 +32,7 @@ class StoreApplicationRequest extends FormRequest
             'car_brand' => 'required',
             'car_model' => 'required',
             'car_production_year' => 'nullable|numeric',
-            'car_vin_number' => 'nullable|numeric',
+            'car_vin_number' => 'nullable',
             'date_time' => 'required|date:Y-m-d H:i:s',
             'approximate_duration' => 'nullable|numeric',
             'description' => 'nullable',

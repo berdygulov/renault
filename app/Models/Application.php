@@ -11,4 +11,8 @@ class Application extends Model
 
     protected $guarded = [];
 
+    public function services()
+    {
+        return $this->belongsToMany(Service::class, 'application_service');
+    }
 }

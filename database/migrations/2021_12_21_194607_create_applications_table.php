@@ -37,7 +37,6 @@ class CreateApplicationsTable extends Migration
 
             /* Relations */
             $table->foreignId('user_id')->constrained();
-            $table->foreignId('service_id')->constrained();
 
             $table->timestamps();
         });
