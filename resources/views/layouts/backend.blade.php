@@ -154,7 +154,7 @@
                             </li>
                         </ul>
                     </li>
-                    <li class="nav-item @if(Route::is('backend.services.*')) menu-open active @endif">
+                    <li class="nav-item @if(Route::is('backend.services.*') || Route::is('backend.service_categories.*')) menu-open active @endif">
                         <a href="#" class="nav-link">
                             <i class="nav-icon fas fa-hand-holding-medical"></i>
                             <p>
