@@ -45,7 +45,7 @@
                                         <td>{{ $application->client_surname .' '. $application->client_name}}</td>
                                         <td>{{ $application->car_brand . ' (' . $application->car_model . ')' }}</td>
                                         <td><strong> {{ $application->date_time }} </strong></td>
-                                        <td>master_id</td>
+                                        <td>{{ $application->master->short_name }}</td>
                                         <td>
                                             @if($application->status == 'done')
                                                 <span class="badge badge-success">
@@ -65,7 +65,8 @@
                                         </td>
                                         <td class="text-right">
                                             <div class="btn-group btn-group-sm">
-                                                <a href="#" class="btn btn-info"><i class="fas fa-eye"></i></a>
+                                                <a href="{{ route('backend.applications.show', ['application_id'=>$application->id]) }}"
+                                                   class="btn btn-info"><i class="fas fa-eye"></i></a>
                                                 <a href="#" class="btn btn-danger"><i class="fas fa-trash"></i></a>
                                             </div>
                                         </td>

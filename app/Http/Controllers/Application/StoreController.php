@@ -10,11 +10,6 @@ class StoreController extends Controller
 {
     public function __invoke(StoreApplicationRequest $request)
     {
-//        foreach ($request->services as $service) {
-//            dump($service);
-//        }
-
-//        dd($request->services);
 
         $application = Application::create([
             'client_surname' => $request->input('client_surname'),
@@ -36,8 +31,9 @@ class StoreController extends Controller
 
         $application->services()->attach($request->services);
 
-        dump($application);
 
-        dd($application->services);
+        return back()
+            ->with('application.create.success', 'Заявка успешно создана!');
+
     }
 }

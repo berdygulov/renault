@@ -11,12 +11,13 @@ class IndexController extends Controller
     /**
      * Handle the incoming request.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
      */
     public function __invoke(Request $request)
     {
-        $applications = Application::orderBy('date_time')
+        $applications = Application::with('master')
+            ->orderBy('date_time')
             ->where('status', '!=', 'done')
             ->paginate(10);
 

@@ -22,6 +22,7 @@ use App\Http\Controllers\Application\IndexController as ApplicationIndex;
 use App\Http\Controllers\Application\ShowController as ApplicationShow;
 use App\Http\Controllers\Application\CreateController as ApplicationCreate;
 use App\Http\Controllers\Application\StoreController as ApplicationStore;
+use App\Http\Controllers\Application\ChangeStatusController as ApplicationChangeStatus;
 
 /**
  * Master Controllers
@@ -74,8 +75,8 @@ Route::group([
 
 Route::group([
     'middleware' => 'auth',
-    'prefix'     => 'backend',
-    'as'         => 'backend.',
+    'prefix' => 'backend',
+    'as' => 'backend.',
 ], function () {
     /*
      * Backend Index Controllers
@@ -88,12 +89,13 @@ Route::group([
     /* Applications Controller */
     Route::group([
         'prefix' => 'applications',
-        'as'     => 'applications.',
+        'as' => 'applications.',
     ], function () {
         Route::get('/', ApplicationIndex::class)->name('index');
         Route::get('/create', ApplicationCreate::class)->name('create');
         Route::post('/', ApplicationStore::class)->name('store');
         Route::get('/{application_id}', ApplicationShow::class)->name('show');
+        Route::patch('/{application_id}', ApplicationChangeStatus::class)->name('change_status');
     });
 
     /**
@@ -101,7 +103,7 @@ Route::group([
      */
     Route::group([
         'prefix' => 'masters',
-        'as'     => 'masters.'
+        'as' => 'masters.'
     ], function () {
         Route::get('/', MasterIndex::class)->name('index');
         Route::get('create', MasterCreate::class)->name('create');
@@ -116,7 +118,7 @@ Route::group([
      */
     Route::group([
         'prefix' => 'services',
-        'as'     => 'services.'
+        'as' => 'services.'
     ], function () {
         Route::get('/', ServiceIndex::class)->name('index');
         Route::get('create', ServiceCreate::class)->name('create');

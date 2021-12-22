@@ -15,6 +15,17 @@ class Application extends Model
     {
         return $this->belongsToMany(Service::class, 'application_service');
     }
+
+    public function master()
+    {
+        return $this->belongsTo(Master::class);
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
     public function getClientFullNameAttribute()
     {
         if ($this->client_patronymic) {

@@ -11,7 +11,7 @@ class UpdateController extends Controller
     /**
      * Handle the incoming request.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\RedirectResponse
      */
     public function __invoke(MasterRequest $request, $master_id)
@@ -21,6 +21,6 @@ class UpdateController extends Controller
         $master->update($request->all());
 
         return back()
-            ->with('crud_success', 'Профиль мастера успешно обновлено!');
+            ->with('crud_success', 'Профиль мастера успешно обновлен!');
     }
 }

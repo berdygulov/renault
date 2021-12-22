@@ -24,6 +24,11 @@ class Master extends Model
         return $this->belongsToMany(Service::class, 'master_service');
     }
 
+    public function applications()
+    {
+        return $this->hasMany(Application::class);
+    }
+
     public function getShortNameAttribute()
     {
         return $this->name . ' ' . $this->surname[0] . '.';

@@ -46,4 +46,12 @@ class User extends Authenticatable
     {
         return $this->name . ' ' . $this->surname[0] . '.';
     }
+
+    public function getFullNameAttribute()
+    {
+        if ($this->patronymic) {
+            return "{$this->surname} {$this->name} {$this->patronymic}";
+        }
+        return "{$this->surname} {$this->name}";
+    }
 }
