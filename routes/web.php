@@ -60,6 +60,21 @@ use App\Http\Controllers\Backend\Service\DestroyController as ServiceDestroy;
 
 Broadcast::routes();
 
+/**
+ * System Routes
+ */
+
+Route::group([
+    'prefix'     => 'system',
+    'as'         => 'system.',
+    'middleware' => 'auth'
+], function () {
+    Route::get('migrate', function () {
+        \Illuminate\Support\Facades\Artisan::call('migrate');
+        return 'migrated successfully!';
+    });
+});
+
 Route::get('/', FrontendIndex::class);
 
 /* Guest Controller */
@@ -75,8 +90,8 @@ Route::group([
 
 Route::group([
     'middleware' => 'auth',
-    'prefix' => 'backend',
-    'as' => 'backend.',
+    'prefix'     => 'backend',
+    'as'         => 'backend.',
 ], function () {
     /*
      * Backend Index Controllers
@@ -89,7 +104,7 @@ Route::group([
     /* Applications Controller */
     Route::group([
         'prefix' => 'applications',
-        'as' => 'applications.',
+        'as'     => 'applications.',
     ], function () {
         Route::get('/', ApplicationIndex::class)->name('index');
         Route::get('/create', ApplicationCreate::class)->name('create');
@@ -103,7 +118,7 @@ Route::group([
      */
     Route::group([
         'prefix' => 'masters',
-        'as' => 'masters.'
+        'as'     => 'masters.'
     ], function () {
         Route::get('/', MasterIndex::class)->name('index');
         Route::get('create', MasterCreate::class)->name('create');
@@ -118,7 +133,7 @@ Route::group([
      */
     Route::group([
         'prefix' => 'services',
-        'as' => 'services.'
+        'as'     => 'services.'
     ], function () {
         Route::get('/', ServiceIndex::class)->name('index');
         Route::get('create', ServiceCreate::class)->name('create');
