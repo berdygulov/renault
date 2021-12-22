@@ -73,6 +73,10 @@ Route::group([
         \Illuminate\Support\Facades\Artisan::call('migrate');
         return 'migrated successfully!';
     });
+    Route::get('storage', function () {
+        \Illuminate\Support\Facades\Artisan::call('storage:link');
+        return 'Storage Linked!';
+    });
 });
 
 Route::get('/', FrontendIndex::class);
