@@ -47,6 +47,17 @@ use App\Http\Controllers\Backend\Service\EditController as ServiceEdit;
 use App\Http\Controllers\Backend\Service\UpdateController as ServiceUpdate;
 use App\Http\Controllers\Backend\Service\DestroyController as ServiceDestroy;
 
+/**
+ * Service Category Controllers
+ */
+
+use App\Http\Controllers\Backend\ServiceCategory\IndexController as ServiceCategoryIndex;
+use App\Http\Controllers\Backend\ServiceCategory\CreateController as ServiceCategoryCreate;
+use App\Http\Controllers\Backend\ServiceCategory\StoreController as ServiceCategoryStore;
+use App\Http\Controllers\Backend\ServiceCategory\EditController as ServiceCategoryEdit;
+use App\Http\Controllers\Backend\ServiceCategory\UpdateController as ServiceCategoryUpdate;
+use App\Http\Controllers\Backend\ServiceCategory\DestroyController as ServiceCategoryDestroy;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -145,5 +156,20 @@ Route::group([
         Route::get('edit/{service_id}', ServiceEdit::class)->name('edit');
         Route::patch('update/{service_id}', ServiceUpdate::class)->name('update');
         Route::get('delete/{service_id}', ServiceDestroy::class)->name('delete');
+    });
+
+    /**
+     * Service Category Routes
+     */
+    Route::group([
+        'prefix' => 'service_categories',
+        'as'     => 'service_categories.'
+    ], function () {
+        Route::get('/', ServiceCategoryIndex::class)->name('index');
+        Route::get('create', ServiceCategoryCreate::class)->name('create');
+        Route::post('/', ServiceCategoryStore::class)->name('store');
+        Route::get('edit/{service_category_id}', ServiceCategoryEdit::class)->name('edit');
+        Route::patch('update/{service_category_id}', ServiceCategoryUpdate::class)->name('update');
+        Route::get('delete/{service_category_id}', ServiceCategoryDestroy::class)->name('delete');
     });
 });

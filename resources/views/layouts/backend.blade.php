@@ -175,6 +175,18 @@
                                     <p>Новая услуга</p>
                                 </a>
                             </li>
+                            <li class="nav-item">
+                                <a href="{{ route('backend.service_categories.index') }}"
+                                   class="nav-link @if(Route::is('backend.service_categories.index')) active @endif">
+                                    <p>Все категории</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ route('backend.service_categories.create') }}"
+                                   class="nav-link @if(Route::is('backend.service_categories.create')) active @endif">
+                                    <p>Новая категория</p>
+                                </a>
+                            </li>
                         </ul>
                     </li>
                 </ul>
