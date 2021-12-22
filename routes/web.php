@@ -90,7 +90,7 @@ Route::group([
     });
 });
 
-Route::get('/', FrontendIndex::class);
+Route::get('/', FrontendIndex::class)->name('frontend.index');
 
 /* Guest Controller */
 

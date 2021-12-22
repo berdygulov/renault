@@ -50,7 +50,7 @@
         <!-- Right navbar links -->
         <ul class="navbar-nav ml-auto">
             <!-- Navbar Search -->
-            <li class="nav-item">
+            <li class="nav-item d-none">
                 <a class="nav-link" data-widget="navbar-search" href="#" role="button">
                     <i class="fas fa-search"></i>
                 </a>
@@ -72,17 +72,17 @@
                 </div>
             </li>
             <li class="nav-item">
-                <a class="nav-link" data-widget="fullscreen" href="#" role="button">
+                <a class="nav-link" data-widget="fullscreen" title="Расширить на весь экран" href="#" role="button">
                     <i class="fas fa-expand-arrows-alt"></i>
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#" role="button">
+                <a class="nav-link" href="{{ route('frontend.index') }}" role="button" title="Перейти в окно очереди" target="_blank">
                     <i class="fas fa-th-large"></i>
                 </a>
             </li>
             <li class="nav-item ml-3">
-                <a class="nav-link" href="{{ route('backend.logout') }}" role="button">
+                <a class="nav-link" href="{{ route('backend.logout') }}" title="Выйти из аккаунта" role="button">
                     <i style="color: #007bff" class="fas fa-sign-out-alt"></i>
                 </a>
             </li>
