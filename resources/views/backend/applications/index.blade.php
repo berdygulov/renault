@@ -71,8 +71,8 @@
                                     </td>
                                 </tr>
                             @empty
-                                <tr colspan="7">
-                                    <span>Заявок нет</span>
+                                <tr>
+                                    <td colspan="7"><span>Заявок нет</span></td>
                                 </tr>
                             @endforelse
                             </tbody>
