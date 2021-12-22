@@ -38,45 +38,43 @@
                             </tr>
                             </thead>
                             <tbody>
-                            @if(!$applications->isEmpty())
-                                @foreach($applications as $application)
-                                    <tr>
-                                        <td>{{ $application->id }}</td>
-                                        <td>{{ $application->client_surname .' '. $application->client_name}}</td>
-                                        <td>{{ $application->car_brand . ' (' . $application->car_model . ')' }}</td>
-                                        <td><strong> {{ $application->date_time }} </strong></td>
-                                        <td>{{ $application->master->short_name }}</td>
-                                        <td>
-                                            @if($application->status == 'done')
-                                                <span class="badge badge-success">
+                            @forelse($applications as $application)
+                                <tr>
+                                    <td>{{ $application->id }}</td>
+                                    <td>{{ $application->client_surname .' '. $application->client_name}}</td>
+                                    <td>{{ $application->car_brand . ' (' . $application->car_model . ')' }}</td>
+                                    <td><strong> {{ $application->date_time }} </strong></td>
+                                    <td>{{ $application->master->short_name }}</td>
+                                    <td>
+                                        @if($application->status == 'done')
+                                            <span class="badge badge-success">
                                                     Завершен
                                                 </span>
-                                            @elseif ($application->status == 'process')
-                                                <span class="badge badge-warning">
+                                        @elseif ($application->status == 'process')
+                                            <span class="badge badge-warning">
                                                     В процессе
                                                 </span>
-                                            @elseif ($application->status == 'waiting')
-                                                <span class="badge badge-info">
+                                        @elseif ($application->status == 'waiting')
+                                            <span class="badge badge-info">
                                                     Ожидание
                                                 </span>
-                                            @else
-                                                ----
-                                            @endif
-                                        </td>
-                                        <td class="text-right">
-                                            <div class="btn-group btn-group-sm">
-                                                <a href="{{ route('backend.applications.show', ['application_id'=>$application->id]) }}"
-                                                   class="btn btn-info"><i class="fas fa-eye"></i></a>
-                                                <a href="#" class="btn btn-danger"><i class="fas fa-trash"></i></a>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                @endforeach
-                            @else
-                                <tr>
+                                        @else
+                                            ----
+                                        @endif
+                                    </td>
+                                    <td class="text-right">
+                                        <div class="btn-group btn-group-sm">
+                                            <a href="{{ route('backend.applications.show', ['application_id'=>$application->id]) }}"
+                                               class="btn btn-info"><i class="fas fa-eye"></i></a>
+                                            <a href="#" class="btn btn-danger"><i class="fas fa-trash"></i></a>
+                                        </div>
+                                    </td>
+                                </tr>
+                            @empty
+                                <tr colspan="7">
                                     <span>Заявок нет</span>
                                 </tr>
-                            @endif
+                            @endforelse
                             </tbody>
                         </table>
                     </div>
