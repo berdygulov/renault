@@ -7,7 +7,7 @@
         <div class="row">
             <div class="col-12">
                 <div
-                    class="card @if($application->status == 'process') card-warning @elseif($application->status == 'waiting') card-info @elseif($application->status == 'done') card-success @endif">
+                        class="card @if($application->status == 'process') card-warning @elseif($application->status == 'waiting') card-info @elseif($application->status == 'done') card-success @endif">
                     <div class="card-header">
                         <h3 class="card-title">Информация о заявке</h3>
                     </div>
@@ -16,8 +16,8 @@
                         <strong><i class="fas fa-exchange-alt mr-1 mb-2"></i> Изменить статус: </strong>
                         <div class="d-flex mt-2">
                             <form
-                                action="{{ route('backend.applications.change_status', ['application_id'=>$application->id]) }}"
-                                method="POST">
+                                    action="{{ route('backend.applications.change_status', ['application_id'=>$application->id]) }}"
+                                    method="POST">
                                 @csrf
                                 @method('PATCH')
                                 <input name="status" type="hidden" value="waiting">
@@ -27,8 +27,8 @@
                                 </button>
                             </form>
                             <form
-                                action="{{ route('backend.applications.change_status', ['application_id'=>$application->id]) }}"
-                                method="POST">
+                                    action="{{ route('backend.applications.change_status', ['application_id'=>$application->id]) }}"
+                                    method="POST">
                                 @csrf
                                 @method('PATCH')
                                 <input name="status" type="hidden" value="process">
@@ -38,8 +38,8 @@
                                 </button>
                             </form>
                             <form
-                                action="{{ route('backend.applications.change_status', ['application_id'=>$application->id]) }}"
-                                method="POST">
+                                    action="{{ route('backend.applications.change_status', ['application_id'=>$application->id]) }}"
+                                    method="POST">
                                 @csrf
                                 @method('PATCH')
                                 <input name="status" type="hidden" value="done">
@@ -49,6 +49,17 @@
                                 </button>
                             </form>
                         </div>
+                        <hr>
+                        <strong><i class="fas fa-toggle-on mr-1 mb-2"></i> Статус:</strong>
+                        <p class="text-muted">
+                            @if($application->status == 'process')
+                                <strong>В процессе</strong>
+                            @elseif($application->status == 'waiting')
+                                <strong>Ожидание</strong>
+                            @elseif($application->status == 'done')
+                                <strong>Завершен</strong>
+                            @endif
+                        </p>
                         <hr>
                         <strong><i class="fas fa-user mr-1 mb-2"></i>ФИО клиента:</strong>
                         <p class="text-muted">
@@ -89,17 +100,6 @@
                             <strong>{{ $application->date_time}} </strong> @if($application->approximate_duration)
                                 (Примерная
                                 продолжительность: {{ $application->approximate_duration }} минут) @endif
-                        </p>
-                        <hr>
-                        <strong><i class="fas fa-toggle-on mr-1 mb-2"></i> Статус:</strong>
-                        <p class="text-muted">
-                            @if($application->status == 'process')
-                                <strong>В процессе</strong>
-                            @elseif($application->status == 'waiting')
-                                <strong>Ожидание</strong>
-                            @elseif($application->status == 'done')
-                                <strong>Завершен</strong>
-                            @endif
                         </p>
                     </div>
                     <!-- /.card-body -->
