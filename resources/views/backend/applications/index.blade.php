@@ -11,7 +11,7 @@
                         <h3 class="card-title">Заявки</h3>
 
                         <div class="card-tools">
-                            <div class="input-group input-group-sm" style="width: 150px;">
+                            <div class="input-group input-group-sm d-none" style="width: 150px;">
                                 <input type="text" name="table_search" class="form-control float-right"
                                        placeholder="Search">
 
