@@ -24,20 +24,20 @@ class StoreApplicationRequest extends FormRequest
     public function rules()
     {
         return [
-            'client_surname' => 'required|alpha',
-            'client_name' => 'required|alpha',
-            'client_patronymic' => 'nullable|alpha',
-            'client_phone' => 'required',
-            'additional_phone' => 'nullable',
-            'car_brand' => 'required',
-            'car_model' => 'required',
-            'car_production_year' => 'nullable|numeric',
-            'car_vin_number' => 'nullable',php
-            'date_time' => 'required|date:Y-m-d H:i:s',
+            'client_surname'       => 'required|alpha',
+            'client_name'          => 'required|alpha',
+            'client_patronymic'    => 'nullable|alpha',
+            'client_phone'         => 'required',
+            'additional_phone'     => 'nullable',
+            'car_brand'            => 'required',
+            'car_model'            => 'required',
+            'car_production_year'  => 'nullable|numeric',
+            'car_vin_number'       => 'nullable',
+            'date_time'            => 'required|date:Y-m-d H:i:s',
             'approximate_duration' => 'nullable|numeric',
-            'description' => 'nullable',
-            'services' => 'required',
-            'master_id' => 'required',
+            'description'          => 'nullable',
+            'services'             => 'required',
+            'master_id'            => 'required',
         ];
     }
 }

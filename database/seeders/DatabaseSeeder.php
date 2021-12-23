@@ -17,21 +17,13 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        User::create([
-            'email'             => 'manager@mail.ru',
-            'name'              => 'Admin',
-            'surname'           => 'Super',
-            'email_verified_at' => now(),
-            'password'          => Hash::make('manager2021'), // password
-            'remember_token'    => Str::random(10),
-        ]);
-//        \App\Models\User::factory(1)->create();
+        \App\Models\User::factory(1)->create();
 
-//        $this->call([
-//            MasterSeeder::class,
-//            ServiceCategorySeeder::class,
-//            ServiceSeeder::class,
-//            ApplicationSeeder::class,
-//        ]);
+        $this->call([
+            MasterSeeder::class,
+            ServiceCategorySeeder::class,
+            ServiceSeeder::class,
+            ApplicationSeeder::class,
+        ]);
     }
 }
