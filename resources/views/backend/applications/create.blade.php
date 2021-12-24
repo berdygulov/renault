@@ -221,7 +221,8 @@
                                             <div class="select2-info w-100">
                                                 <select class="select2"
                                                         id="masters" name="master_id"
-                                                        data-placeholder="Выберите мастера">
+                                                        data-placeholder="Выберите мастера"
+                                                        data-dropdown-css-class="select2-info">
                                                     <option value="" selected>Выберите мастера</option>
                                                     @foreach($masters as $master)
                                                         <option
