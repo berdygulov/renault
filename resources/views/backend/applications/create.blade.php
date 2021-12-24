@@ -291,9 +291,7 @@
     <script type="text/javascript">
         $('#services').select2();
 
-        $('#masters').select2({
-            language: moment.locale('ru'),
-        });
+        $('#masters').select2();
 
         $(".maskinput").inputmask();
 
