@@ -272,7 +272,7 @@
                             <!-- /.form group -->
                             <div class="card-footer">
                                 <span
-                                        class="text-muted">Заявка будет автоматический помещена в очередь после создания!</span>
+                                        class="text-muted">Заявка будет автоматическии помещена в очередь после создания!</span>
                             </div>
                             <!-- /.card-body -->
                         </div>
@@ -294,7 +294,6 @@
 		$(".maskinput").inputmask();
 
 		$('#date_time').datetimepicker({
-			locale: 'RU',
 			format: 'YYYY-MM-DD HH:mm:ss',
 			icons: {
 				time: "fa fa-clock",
