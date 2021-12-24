@@ -197,12 +197,12 @@
                                                     @foreach($service_categories as $service_category)
                                                         @if(!$service_category->services->isEmpty())
                                                             <option
-                                                                value="null"
-                                                                disabled>{{ '-- ' . $service_category->name . ' (кат.)' }}
+                                                                    value="null"
+                                                                    disabled>{{ '-- ' . $service_category->name . ' (кат.)' }}
                                                             </option>
                                                             @foreach($service_category->services as $service)
                                                                 <option
-                                                                    value="{{ $service->id }}">{{ $service->name }}
+                                                                        value="{{ $service->id }}">{{ $service->name }}
                                                                 </option>
                                                             @endforeach
                                                         @endif
@@ -226,7 +226,7 @@
                                                     <option value="" selected>Выберите мастера</option>
                                                     @foreach($masters as $master)
                                                         <option
-                                                            value="{{ $master->id }}">{{ $master->name . ' ' .  $master->surname .  ' (' . $master->position . ')'}}</option>
+                                                                value="{{ $master->id }}">{{ $master->name . ' ' .  $master->surname .  ' (' . $master->position . ')'}}</option>
                                                     @endforeach
                                                 </select>
                                             </div>
@@ -276,7 +276,7 @@
                             <!-- /.form group -->
                             <div class="card-footer">
                                 <span
-                                    class="text-muted">Заявка будет автоматический помещена в очередь после создания!</span>
+                                        class="text-muted">Заявка будет автоматический помещена в очередь после создания!</span>
                             </div>
                             <!-- /.card-body -->
                         </div>
@@ -289,21 +289,20 @@
 
 @section('page-scripts')
     <script type="text/javascript">
-        $('#services').select2();
+		$('#services').select2();
 
-        $('#masters').select2({
-            language: moment.locale('ru'),
-        });
+		$('#masters').select2();
 
-        $(".maskinput").inputmask();
+		$(".maskinput").inputmask();
 
-        $('#date_time').datetimepicker({
-            locale: 'ru',
-            format: 'YYYY-MM-DD HH:mm:ss',
-            icons: {
-                time: "fa fa-clock",
-            },
-        });
+		moment.locale('ru');
+		$('#date_time').datetimepicker({
+			locale: 'ru',
+			format: 'YYYY-MM-DD HH:mm:ss',
+			icons: {
+				time: "fa fa-clock",
+			},
+		});
     </script>
 @endsection
 
