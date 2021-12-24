@@ -276,7 +276,7 @@
                             <!-- /.form group -->
                             <div class="card-footer">
                                 <span
-                                    class="text-muted">Заявка будет автоматическии помещена в очередь после создания!</span>
+                                    class="text-muted">Заявка будет автоматический помещена в очередь после создания!</span>
                             </div>
                             <!-- /.card-body -->
                         </div>
@@ -292,12 +292,13 @@
         $('#services').select2();
 
         $('#masters').select2({
-            language: 'ru'
+            language: moment.locale('ru'),
         });
 
         $(".maskinput").inputmask();
 
         $('#date_time').datetimepicker({
+            locale: 'ru',
             format: 'YYYY-MM-DD HH:mm:ss',
             icons: {
                 time: "fa fa-clock",

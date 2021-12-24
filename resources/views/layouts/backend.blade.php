@@ -260,7 +260,7 @@
 <!-- Bootstrap 4 -->
 <script src="{{ asset('custom/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 <!-- Moment -->
-<script src="{{ asset('custom/plugins/moment/moment.min.js') }}"></script>
+<script src="{{ asset('custom/plugins/moment/moment-with-locales.min.js') }}"></script>
 <!-- Tempusdominus bootstrap 4 -->
 <script src="{{ asset('custom/js/datepicker-ru.js') }}"></script>
 <script src="{{ asset('custom/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js') }}"></script>
