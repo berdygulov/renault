@@ -6,6 +6,12 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-12">
+                @if(session()->has('crud_success'))
+                    <div class="alert alert-success alert-dismissible">
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                        <h5><i class="icon fas fa-check"></i> {{ session('crud_success') }}</h5>
+                    </div>
+                @endif
                 <div class="card card-info">
                     <div class="card-header">
                         <h3 class="card-title">Новая заявка</h3>
@@ -266,7 +272,7 @@
                             <!-- /.form group -->
                             <div class="card-footer">
                                 <span
-                                        class="text-muted">Заявка будет автоматический помещена в очередь после создания!</span>
+                                        class="text-muted">Заявка будет автоматическии помещена в очередь после создания!</span>
                             </div>
                             <!-- /.card-body -->
                         </div>
@@ -288,7 +294,6 @@
 		$(".maskinput").inputmask();
 
 		$('#date_time').datetimepicker({
-			locale: 'RU',
 			format: 'YYYY-MM-DD HH:mm:ss',
 			icons: {
 				time: "fa fa-clock",

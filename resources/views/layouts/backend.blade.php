@@ -262,6 +262,7 @@
 <!-- Moment -->
 <script src="{{ asset('custom/plugins/moment/moment.min.js') }}"></script>
 <!-- Tempusdominus bootstrap 4 -->
+<script src="{{ asset('custom/js/datepicker-ru.js') }}"></script>
 <script src="{{ asset('custom/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js') }}"></script>
 <!-- AdminLTE App -->
 <script src="{{ asset('custom/js/adminlte.min.js') }}"></script>
