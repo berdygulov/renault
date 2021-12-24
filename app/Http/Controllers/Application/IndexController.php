@@ -18,7 +18,6 @@ class IndexController extends Controller
     {
         $applications = Application::with('master')
             ->orderBy('date_time')
-            ->where('status', '!=', 'done')
             ->paginate(10);
 
         return view('backend.applications.index', compact('applications'));

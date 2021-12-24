@@ -10,7 +10,11 @@ class IndexController extends Controller
 {
     public function __invoke()
     {
-        $applications = Application::orderBy('date_time', 'desc')->paginate(15);
+
+        $applications = Application::with('master')
+            ->orderBy('date_time')
+            ->where('status', '!=', 'done')
+            ->paginate(10);
         return view('backend.applications.index', compact('applications'));
     }
 }

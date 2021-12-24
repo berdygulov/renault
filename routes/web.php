@@ -76,8 +76,8 @@ Broadcast::routes();
  */
 
 Route::group([
-    'prefix'     => 'system',
-    'as'         => 'system.',
+    'prefix' => 'system',
+    'as' => 'system.',
     'middleware' => 'auth'
 ], function () {
     Route::get('migrate', function () {
@@ -105,8 +105,8 @@ Route::group([
 
 Route::group([
     'middleware' => 'auth',
-    'prefix'     => 'backend',
-    'as'         => 'backend.',
+    'prefix' => 'backend',
+    'as' => 'backend.',
 ], function () {
     /*
      * Backend Index Controllers
@@ -119,7 +119,7 @@ Route::group([
     /* Applications Controller */
     Route::group([
         'prefix' => 'applications',
-        'as'     => 'applications.',
+        'as' => 'applications.',
     ], function () {
         Route::get('/', ApplicationIndex::class)->name('index');
         Route::get('/create', ApplicationCreate::class)->name('create');
@@ -133,7 +133,7 @@ Route::group([
      */
     Route::group([
         'prefix' => 'masters',
-        'as'     => 'masters.'
+        'as' => 'masters.'
     ], function () {
         Route::get('/', MasterIndex::class)->name('index');
         Route::get('create', MasterCreate::class)->name('create');
@@ -148,7 +148,7 @@ Route::group([
      */
     Route::group([
         'prefix' => 'services',
-        'as'     => 'services.'
+        'as' => 'services.'
     ], function () {
         Route::get('/', ServiceIndex::class)->name('index');
         Route::get('create', ServiceCreate::class)->name('create');
@@ -163,7 +163,7 @@ Route::group([
      */
     Route::group([
         'prefix' => 'service_categories',
-        'as'     => 'service_categories.'
+        'as' => 'service_categories.'
     ], function () {
         Route::get('/', ServiceCategoryIndex::class)->name('index');
         Route::get('create', ServiceCategoryCreate::class)->name('create');

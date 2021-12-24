@@ -19,7 +19,7 @@ class AuthController extends Controller
 
             $request->session()->regenerate();
 
-            return redirect()->route('backend.applications.index');
+            return redirect()->route('backend.index');
         }
         return back()->withErrors([
             'login' => 'Предоставленные учетные данные не соответствуют.'

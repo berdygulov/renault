@@ -77,7 +77,8 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{ route('frontend.index') }}" role="button" title="Перейти в окно очереди" target="_blank">
+                <a class="nav-link" href="{{ route('frontend.index') }}" role="button" title="Перейти в окно очереди"
+                   target="_blank">
                     <i class="fas fa-th-large"></i>
                 </a>
             </li>
@@ -117,6 +118,12 @@
                             </p>
                         </a>
                         <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="{{ route('backend.index') }}"
+                                   class="nav-link @if(Route::is('backend.index')) active @endif">
+                                    <p>Активные заявки</p>
+                                </a>
+                            </li>
                             <li class="nav-item">
                                 <a href="{{ route('backend.applications.index') }}"
                                    class="nav-link @if(Route::is('backend.applications.index')) active @endif">
