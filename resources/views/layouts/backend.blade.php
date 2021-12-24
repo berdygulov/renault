@@ -232,7 +232,7 @@
         <!-- /.content -->
     </div>
     <!-- /.content-wrapper -->
-    <footer class="main-footer">
+    <footer class="main-footer dark-mode">
         <strong>Copyright &copy; {{ now()->format('Y') }} «Ural-Krov-Auto Plus» LLP.</strong>
         All rights reserved.
         <div class="float-right d-none d-sm-inline-block">

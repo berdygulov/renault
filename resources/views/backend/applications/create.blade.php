@@ -195,14 +195,17 @@
                                                         data-dropdown-css-class="select2-info"
                                                         name="services[]" multiple="multiple">
                                                     @foreach($service_categories as $service_category)
-                                                        <option
-                                                                value="null" disabled>{{ $service_category->name }}
-                                                        </option>
-                                                        @foreach($service_category->services as $service)
+                                                        @if(!$service_category->services->isEmpty())
                                                             <option
-                                                                    value="{{ $service->id }}">{{ $service->name }}
+                                                                value="null"
+                                                                disabled>{{ '-- ' . $service_category->name . ' (кат.)' }}
                                                             </option>
-                                                        @endforeach
+                                                            @foreach($service_category->services as $service)
+                                                                <option
+                                                                    value="{{ $service->id }}">{{ $service->name }}
+                                                                </option>
+                                                            @endforeach
+                                                        @endif
                                                     @endforeach
                                                 </select>
                                             </div>
@@ -222,7 +225,7 @@
                                                     <option value="" selected>Выберите мастера</option>
                                                     @foreach($masters as $master)
                                                         <option
-                                                                value="{{ $master->id }}">{{ $master->name . ' ' .  $master->surname .  ' (' . $master->position . ')'}}</option>
+                                                            value="{{ $master->id }}">{{ $master->name . ' ' .  $master->surname .  ' (' . $master->position . ')'}}</option>
                                                     @endforeach
                                                 </select>
                                             </div>
@@ -272,7 +275,7 @@
                             <!-- /.form group -->
                             <div class="card-footer">
                                 <span
-                                        class="text-muted">Заявка будет автоматическии помещена в очередь после создания!</span>
+                                    class="text-muted">Заявка будет автоматическии помещена в очередь после создания!</span>
                             </div>
                             <!-- /.card-body -->
                         </div>
@@ -285,20 +288,20 @@
 
 @section('page-scripts')
     <script type="text/javascript">
-		$('#services').select2();
+        $('#services').select2();
 
-		$('#masters').select2({
-			language: 'ru'
-		});
+        $('#masters').select2({
+            language: 'ru'
+        });
 
-		$(".maskinput").inputmask();
+        $(".maskinput").inputmask();
 
-		$('#date_time').datetimepicker({
-			format: 'YYYY-MM-DD HH:mm:ss',
-			icons: {
-				time: "fa fa-clock",
-			},
-		});
+        $('#date_time').datetimepicker({
+            format: 'YYYY-MM-DD HH:mm:ss',
+            icons: {
+                time: "fa fa-clock",
+            },
+        });
     </script>
 @endsection
 

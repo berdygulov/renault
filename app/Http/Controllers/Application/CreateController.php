@@ -12,7 +12,7 @@ class CreateController extends Controller
 {
     public function __invoke()
     {
-        $service_categories = ServiceCategory::all();
+        $service_categories = ServiceCategory::with('services')->get();
         $masters = Master::all();
 
         return view('backend.applications.create', compact('service_categories', 'masters'));
