@@ -50,7 +50,7 @@
         <!-- Right navbar links -->
         <ul class="navbar-nav ml-auto">
             <!-- Navbar Search -->
-            <li class="nav-item">
+            <li class="nav-item d-none">
                 <a class="nav-link" data-widget="navbar-search" href="#" role="button">
                     <i class="fas fa-search"></i>
                 </a>
@@ -72,17 +72,17 @@
                 </div>
             </li>
             <li class="nav-item">
-                <a class="nav-link" data-widget="fullscreen" href="#" role="button">
+                <a class="nav-link" data-widget="fullscreen" title="Расширить на весь экран" href="#" role="button">
                     <i class="fas fa-expand-arrows-alt"></i>
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#" role="button">
+                <a class="nav-link" href="{{ route('frontend.index') }}" role="button" title="Перейти в окно очереди" target="_blank">
                     <i class="fas fa-th-large"></i>
                 </a>
             </li>
             <li class="nav-item ml-3">
-                <a class="nav-link" href="{{ route('backend.logout') }}" role="button">
+                <a class="nav-link" href="{{ route('backend.logout') }}" title="Выйти из аккаунта" role="button">
                     <i style="color: #007bff" class="fas fa-sign-out-alt"></i>
                 </a>
             </li>
@@ -154,7 +154,7 @@
                             </li>
                         </ul>
                     </li>
-                    <li class="nav-item @if(Route::is('backend.services.*')) menu-open active @endif">
+                    <li class="nav-item @if(Route::is('backend.services.*') || Route::is('backend.service_categories.*')) menu-open active @endif">
                         <a href="#" class="nav-link">
                             <i class="nav-icon fas fa-hand-holding-medical"></i>
                             <p>
@@ -173,6 +173,18 @@
                                 <a href="{{ route('backend.services.create') }}"
                                    class="nav-link @if(Route::is('backend.services.create')) active @endif">
                                     <p>Новая услуга</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ route('backend.service_categories.index') }}"
+                                   class="nav-link @if(Route::is('backend.service_categories.index')) active @endif">
+                                    <p>Все категории</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ route('backend.service_categories.create') }}"
+                                   class="nav-link @if(Route::is('backend.service_categories.create')) active @endif">
+                                    <p>Новая категория</p>
                                 </a>
                             </li>
                         </ul>
@@ -213,8 +225,8 @@
         <!-- /.content -->
     </div>
     <!-- /.content-wrapper -->
-    <footer class="main-footer dark-mode">
-        <strong>Copyright &copy; {{ now()->format('Y') }} «Company name» CC.</strong>
+    <footer class="main-footer">
+        <strong>Copyright &copy; {{ now()->format('Y') }} «Ural-Krov-Auto Plus» LLP.</strong>
         All rights reserved.
         <div class="float-right d-none d-sm-inline-block">
             <b>Developed by</b> <a href="https://dalacode.kz">dalacode</a>

@@ -47,6 +47,17 @@ use App\Http\Controllers\Backend\Service\EditController as ServiceEdit;
 use App\Http\Controllers\Backend\Service\UpdateController as ServiceUpdate;
 use App\Http\Controllers\Backend\Service\DestroyController as ServiceDestroy;
 
+/**
+ * Service Category Controllers
+ */
+
+use App\Http\Controllers\Backend\ServiceCategory\IndexController as ServiceCategoryIndex;
+use App\Http\Controllers\Backend\ServiceCategory\CreateController as ServiceCategoryCreate;
+use App\Http\Controllers\Backend\ServiceCategory\StoreController as ServiceCategoryStore;
+use App\Http\Controllers\Backend\ServiceCategory\EditController as ServiceCategoryEdit;
+use App\Http\Controllers\Backend\ServiceCategory\UpdateController as ServiceCategoryUpdate;
+use App\Http\Controllers\Backend\ServiceCategory\DestroyController as ServiceCategoryDestroy;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -60,7 +71,26 @@ use App\Http\Controllers\Backend\Service\DestroyController as ServiceDestroy;
 
 Broadcast::routes();
 
-Route::get('/', FrontendIndex::class);
+/**
+ * System Routes
+ */
+
+Route::group([
+    'prefix'     => 'system',
+    'as'         => 'system.',
+    'middleware' => 'auth'
+], function () {
+    Route::get('migrate', function () {
+        \Illuminate\Support\Facades\Artisan::call('migrate');
+        return 'migrated successfully!';
+    });
+    Route::get('storage', function () {
+        \Illuminate\Support\Facades\Artisan::call('storage:link');
+        return 'Storage Linked!';
+    });
+});
+
+Route::get('/', FrontendIndex::class)->name('frontend.index');
 
 /* Guest Controller */
 
@@ -75,8 +105,8 @@ Route::group([
 
 Route::group([
     'middleware' => 'auth',
-    'prefix' => 'backend',
-    'as' => 'backend.',
+    'prefix'     => 'backend',
+    'as'         => 'backend.',
 ], function () {
     /*
      * Backend Index Controllers
@@ -89,7 +119,7 @@ Route::group([
     /* Applications Controller */
     Route::group([
         'prefix' => 'applications',
-        'as' => 'applications.',
+        'as'     => 'applications.',
     ], function () {
         Route::get('/', ApplicationIndex::class)->name('index');
         Route::get('/create', ApplicationCreate::class)->name('create');
@@ -103,7 +133,7 @@ Route::group([
      */
     Route::group([
         'prefix' => 'masters',
-        'as' => 'masters.'
+        'as'     => 'masters.'
     ], function () {
         Route::get('/', MasterIndex::class)->name('index');
         Route::get('create', MasterCreate::class)->name('create');
@@ -118,7 +148,7 @@ Route::group([
      */
     Route::group([
         'prefix' => 'services',
-        'as' => 'services.'
+        'as'     => 'services.'
     ], function () {
         Route::get('/', ServiceIndex::class)->name('index');
         Route::get('create', ServiceCreate::class)->name('create');
@@ -126,5 +156,20 @@ Route::group([
         Route::get('edit/{service_id}', ServiceEdit::class)->name('edit');
         Route::patch('update/{service_id}', ServiceUpdate::class)->name('update');
         Route::get('delete/{service_id}', ServiceDestroy::class)->name('delete');
+    });
+
+    /**
+     * Service Category Routes
+     */
+    Route::group([
+        'prefix' => 'service_categories',
+        'as'     => 'service_categories.'
+    ], function () {
+        Route::get('/', ServiceCategoryIndex::class)->name('index');
+        Route::get('create', ServiceCategoryCreate::class)->name('create');
+        Route::post('/', ServiceCategoryStore::class)->name('store');
+        Route::get('edit/{service_category_id}', ServiceCategoryEdit::class)->name('edit');
+        Route::patch('update/{service_category_id}', ServiceCategoryUpdate::class)->name('update');
+        Route::get('delete/{service_category_id}', ServiceCategoryDestroy::class)->name('delete');
     });
 });

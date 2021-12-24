@@ -11,6 +11,6 @@ class IndexController extends Controller
     public function __invoke()
     {
         $applications = Application::orderBy('date_time', 'desc')->paginate(15);
-        return view('backend.index', compact('applications'));
+        return view('backend.applications.index', compact('applications'));
     }
 }

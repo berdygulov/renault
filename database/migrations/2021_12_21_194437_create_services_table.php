@@ -21,8 +21,10 @@ class CreateServicesTable extends Migration
             $table->string('description')->nullable();
 
             /* Relations */
-            $table->foreignId('service_category_id')->constrained();
-
+            $table->foreignId('service_category_id')
+                ->constrained()
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
 
             $table->timestamps();
         });
