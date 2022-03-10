@@ -20,7 +20,10 @@
                         @csrf
                         @method('POST')
                         <div class="card-body">
-                            <div class="row">
+                            <div class="row mb-5">
+                                <div class="col-12">
+                                    <h3>Личные данные</h3>
+                                </div>
                                 <div class="col-12 col-lg-6">
                                     <!-- Date and time -->
                                     <div class="form-group">
@@ -71,6 +74,11 @@
                                         </div>
                                     </div>
                                 </div>
+                            </div>
+                            <div class="row mb-5">
+                                <div class="col-12">
+                                    <h3>Контактные данные</h3>
+                                </div>
                                 <div class="col-12 col-lg-6">
                                     <!-- Phone number -->
                                     <div class="form-group">
@@ -103,6 +111,11 @@
                                         </div>
                                         <!-- /.input group -->
                                     </div>
+                                </div>
+                            </div>
+                            <div class="row mb-5">
+                                <div class="col-12">
+                                    <h3>Данные об автомобиле</h3>
                                 </div>
                                 <div class="col-12 col-lg-6">
                                     <!-- Car brand and time -->
@@ -167,6 +180,11 @@
                                         </div>
                                         <!-- /.input group -->
                                     </div>
+                                </div>
+                            </div>
+                            <div class="row mb-5">
+                                <div class="col-12">
+                                    <h3>Детали заявки</h3>
                                 </div>
                                 <div class="col-12 col-lg-6">
                                     <!-- Date and time -->
@@ -265,6 +283,8 @@
                                         <!-- /.input group -->
                                     </div>
                                 </div>
+                            </div>
+                            <div class="row">
                                 <div class="col-12">
                                     <div class="d-flex justify-content-end">
                                         <button style="max-width: max-content;" type="input"
@@ -276,7 +296,7 @@
                             <!-- /.form group -->
                             <div class="card-footer">
                                 <span
-                                        class="text-muted">Заявка будет автоматический помещена в очередь после создания!</span>
+                                        class="text-muted">Заявка будет автоматически помещена в очередь после создания!</span>
                             </div>
                             <!-- /.card-body -->
                         </div>
