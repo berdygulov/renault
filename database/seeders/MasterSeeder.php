@@ -14,8 +14,35 @@ class MasterSeeder extends Seeder
      */
     public function run()
     {
-        Master::factory()
-            ->count(10)
-            ->create();
+        $masters = [
+            [
+                'name'       => 'Александр',
+                'surname'    => 'Емельянов',
+                'patronymic' => '',
+                'position'   => 'Автослесарь',
+            ],
+            [
+                'name'       => 'Дмитрий',
+                'surname'    => 'Мостовщиков',
+                'patronymic' => '',
+                'position'   => 'Автослесарь',
+            ],
+            [
+                'name'       => 'Владимир',
+                'surname'    => 'Мотов',
+                'patronymic' => '',
+                'position'   => 'Автослесарь',
+            ],
+            [
+                'name'       => 'Александр',
+                'surname'    => 'Шопин',
+                'patronymic' => '',
+                'position'   => 'Электрик',
+            ],
+        ];
+
+        foreach ($masters as $master) {
+            Master::create($master);
+        }
     }
 }

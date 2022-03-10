@@ -14,8 +14,20 @@ class ServiceCategorySeeder extends Seeder
      */
     public function run()
     {
-        ServiceCategory::factory()
-            ->count(4)
-            ->create();
+        $service_categories = [
+            [
+                'name' => 'Диагностика'
+            ],
+            [
+                'name' => 'Ремонт'
+            ],
+            [
+                'name' => 'Осмотр'
+            ],
+        ];
+
+        foreach ($service_categories as $service_category) {
+            ServiceCategory::create($service_category);
+        }
     }
 }
